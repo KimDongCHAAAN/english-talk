@@ -2,21 +2,42 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="english-talk">
+  <link rel="manifest" href="manifest.webmanifest">
   <title>english-talk</title>
   <style>
-    body { font-family: -apple-system, "Segoe UI", sans-serif; max-width: 640px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+    body { font-family: -apple-system, "Segoe UI", sans-serif; max-width: 640px; margin: 0 auto; padding: 24px 20px env(safe-area-inset-bottom); line-height: 1.6; color: #222; }
     a { color: #2a6df4; }
+    #t1 { margin-top: 24px; border-top: 1px solid #ddd; padding-top: 16px; }
+    #t1 button { display: block; width: 100%; font-size: 18px; padding: 14px; margin: 8px 0; border-radius: 12px; border: none; background: #2a6df4; color: #fff; }
+    #t1 button.secondary { background: #eef2fb; color: #2a6df4; }
+    #log { font-family: ui-monospace, Menlo, monospace; font-size: 13px; white-space: pre-wrap; background: #f6f6f6; padding: 10px; border-radius: 8px; min-height: 80px; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 6px; background: #eee; font-size: 13px; }
   </style>
 </head>
 <body>
   <h1>english-talk</h1>
   <p>개인용 영어 회화 학습 앱입니다. 매일 짧은 표현을 익히고, 말하기 연습을 합니다.</p>
-  <p>A personal English conversation practice app.</p>
-  <p>앱은 준비 중입니다. / The app is under development.</p>
+  <p>A personal English conversation practice app. The app is under development.</p>
   <ul>
     <li><a href="privacy.html">개인정보처리방침 / Privacy Policy</a></li>
     <li><a href="terms.html">서비스 약관 / Terms of Service</a></li>
   </ul>
+
+  <!-- T1 spike (plan.md stage 2): Google login + Drive appDataFolder from the iPhone home-screen app. Throwaway. -->
+  <section id="t1">
+    <h2>T1 로그인 시험</h2>
+    <p>실행 방식: <span id="mode" class="badge"></span></p>
+    <button id="login">1. 구글 로그인</button>
+    <button id="write">2. 드라이브에 시험 기록 쓰기</button>
+    <button id="read">3. 드라이브에서 시험 기록 읽기</button>
+    <button id="silent" class="secondary">4. 자동 확인 (다시 로그인 없이)</button>
+    <button id="clear" class="secondary">기록 지우기 (기기 안의 로그인만)</button>
+    <div id="log"></div>
+  </section>
+
+  <script type="module" src="t1.js"></script>
 </body>
 </html>
