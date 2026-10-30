@@ -1,0 +1,1134 @@
+{
+  "format": 1,
+  "pack": "L1-P01",
+  "level": 1,
+  "title_ko": "이사 온 첫 주: 인사와 기본 대답",
+  "lessons": [
+    {
+      "id": "L1-P01-D01",
+      "title_ko": "처음 만난 이웃과 인사",
+      "expressions": [
+        {
+          "id": "L1-P01-001",
+          "en": "How's it going?",
+          "ko": "잘 지내? / 어떻게 지내?",
+          "note_ko": "친구나 이웃을 만났을 때 하는 가벼운 인사예요. How are you?보다 편한 말투이고, 보통 Good!이나 Not bad.처럼 짧게 대답해요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Hey, Sam! How's it going?",
+              "ko": "안녕, Sam! 잘 지내?"
+            },
+            {
+              "en": "How's it going at your new job?",
+              "ko": "새 직장은 어때?"
+            }
+          ],
+          "accept": [
+            "How are you doing?",
+            "How are you?",
+            "How's everything?"
+          ],
+          "detect": [
+            "how is it going"
+          ],
+          "check": [
+            "how's it going"
+          ]
+        },
+        {
+          "id": "L1-P01-002",
+          "en": "I'm good.",
+          "ko": "잘 지내(요).",
+          "note_ko": "How are you?나 How's it going?에 대한 가장 흔한 대답이에요. 뒤에 thanks를 붙이면 더 자연스러워요: I'm good, thanks.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "I'm good, thanks. How about you?",
+              "ko": "잘 지내, 고마워. 너는?"
+            }
+          ],
+          "accept": [
+            "I'm doing good.",
+            "I'm doing well.",
+            "Good, thanks."
+          ],
+          "detect": [
+            "i am good",
+            "i am doing good",
+            "i am doing well"
+          ],
+          "check": [
+            "i'm good"
+          ]
+        },
+        {
+          "id": "L1-P01-003",
+          "en": "Not bad.",
+          "ko": "나쁘지 않아. / 괜찮아.",
+          "note_ko": "'그럭저럭 괜찮다'는 뜻의 편한 대답이에요. 안부 인사에도, '어땠어?'라는 질문에도 쓸 수 있어요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Not bad. A little busy, but good.",
+              "ko": "나쁘지 않아. 좀 바쁘지만 괜찮아."
+            }
+          ],
+          "accept": [
+            "Not too bad."
+          ],
+          "detect": [
+            "not bad",
+            "not too bad"
+          ],
+          "check": [
+            "not bad"
+          ]
+        },
+        {
+          "id": "L1-P01-004",
+          "en": "What about you?",
+          "ko": "너는(요)?",
+          "note_ko": "상대가 한 질문을 그대로 돌려줄 때 써요. 대답한 다음 바로 붙이면 대화가 자연스럽게 이어져요. How about you?도 같은 뜻이에요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "I'm good, thanks. What about you?",
+              "ko": "잘 지내, 고마워. 너는?"
+            },
+            {
+              "en": "I'm from Korea. What about you?",
+              "ko": "저는 한국에서 왔어요. 당신은요?"
+            }
+          ],
+          "accept": [
+            "How about you?",
+            "And you?"
+          ],
+          "detect": [
+            "what about you",
+            "how about you"
+          ],
+          "check": [
+            "what about you"
+          ]
+        },
+        {
+          "id": "L1-P01-005",
+          "en": "Nice to meet you.",
+          "ko": "만나서 반가워요.",
+          "note_ko": "처음 만난 사람에게 하는 인사예요. 상대가 먼저 말하면 Nice to meet you, too.로 대답해요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "Hi, I'm Min. Nice to meet you.",
+              "ko": "안녕하세요, 저는 민이에요. 만나서 반가워요."
+            },
+            {
+              "en": "Nice to meet you, too.",
+              "ko": "저도 만나서 반가워요."
+            }
+          ],
+          "accept": [
+            "Nice meeting you.",
+            "Good to meet you.",
+            "It's nice to meet you."
+          ],
+          "detect": [
+            "nice to meet you",
+            "good to meet you"
+          ],
+          "check": [
+            "nice to meet you"
+          ]
+        }
+      ],
+      "script": {
+        "id": "L1-P01-D01-S",
+        "setting_ko": "New Harbor로 이사 온 첫날 아침. 아파트 복도에서 옆집 사람을 만난다",
+        "lines": [
+          {
+            "who": "me",
+            "en": "Hi! How's it going?",
+            "ko": "안녕하세요! 잘 지내세요?",
+            "uses": [
+              "L1-P01-001"
+            ],
+            "accept": [
+              "Hello! How are you?"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Oh, hi! Pretty good. You must be the new neighbor.",
+            "ko": "아, 안녕하세요! 잘 지내요. 새로 이사 온 이웃이시군요."
+          },
+          {
+            "who": "me",
+            "en": "Yes! Nice to meet you.",
+            "ko": "네! 만나서 반가워요.",
+            "uses": [
+              "L1-P01-005"
+            ],
+            "accept": [
+              "Yeah! Good to meet you."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Nice to meet you, too. I'm Sam. How are you doing?",
+            "ko": "저도 반가워요. 저는 Sam이에요. 어떻게 지내요?"
+          },
+          {
+            "who": "me",
+            "en": "I'm good, thanks. What about you?",
+            "ko": "잘 지내요, 고마워요. 당신은요?",
+            "uses": [
+              "L1-P01-002",
+              "L1-P01-004"
+            ],
+            "accept": [
+              "I'm doing well, thanks. How about you?"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Not too bad. A little tired, though. So, how's the new apartment?",
+            "ko": "나쁘지 않아요. 좀 피곤하긴 하지만요. 그래서, 새집은 어때요?"
+          },
+          {
+            "who": "me",
+            "en": "Not bad. It's small, but nice.",
+            "ko": "나쁘지 않아요. 작지만 좋아요.",
+            "uses": [
+              "L1-P01-003"
+            ],
+            "accept": [
+              "Not bad. It's small but nice."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "That's great. Welcome to the building!",
+            "ko": "잘됐네요. 우리 건물에 온 걸 환영해요!"
+          },
+          {
+            "who": "me",
+            "en": "Thanks, Sam!",
+            "ko": "고마워요, Sam!",
+            "accept": [
+              "Thank you, Sam!"
+            ]
+          }
+        ]
+      },
+      "quest": {
+        "npc": "grace",
+        "place": "park",
+        "goal_ko": "공원 벤치에 앉아 있는 Grace에게 How's it going?으로 인사해 보세요",
+        "target": "L1-P01-001",
+        "opener_en": "Oh, hello there. Beautiful morning, isn't it?"
+      }
+    },
+    {
+      "id": "L1-P01-D02",
+      "title_ko": "나를 소개하기",
+      "expressions": [
+        {
+          "id": "L1-P01-006",
+          "en": "Where are you from?",
+          "ko": "어디서 왔어요? / 고향이 어디예요?",
+          "note_ko": "처음 만난 사람과 이야기할 때 자주 묻는 질문이에요. 미국 사람끼리도 '어느 도시 출신이에요?'라는 뜻으로 써요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "So, where are you from?",
+              "ko": "그래서, 어디서 왔어요?"
+            }
+          ],
+          "accept": [
+            "Where do you come from?"
+          ],
+          "detect": [
+            "where are you from"
+          ],
+          "check": [
+            "where are you from"
+          ]
+        },
+        {
+          "id": "L1-P01-007",
+          "en": "I'm from Korea.",
+          "ko": "저는 한국에서 왔어요.",
+          "note_ko": "출신을 말할 때 I'm from 뒤에 나라나 도시를 붙여요. 도시를 말해도 돼요: I'm from Seoul.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "I'm from Korea. I grew up in Busan.",
+              "ko": "저는 한국에서 왔어요. 부산에서 자랐어요."
+            }
+          ],
+          "accept": [
+            "I'm from South Korea.",
+            "I come from Korea."
+          ],
+          "detect": [
+            "i am from korea",
+            "i am from south korea",
+            "i come from korea"
+          ],
+          "check": [
+            "i'm from"
+          ]
+        },
+        {
+          "id": "L1-P01-008",
+          "en": "I just moved here.",
+          "ko": "여기 막 이사 왔어요.",
+          "note_ko": "새로 이사 왔다고 소개할 때 써요. just는 '막, 방금'이라는 뜻이에요. 이 말을 하면 동네 사람들이 이것저것 친절하게 알려줄 거예요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "I just moved here last week.",
+              "ko": "지난주에 막 이사 왔어요."
+            }
+          ],
+          "accept": [
+            "I just moved in.",
+            "I'm new here."
+          ],
+          "detect": [
+            "just moved here",
+            "just moved in",
+            "i am new here"
+          ],
+          "check": [
+            "i just moved here"
+          ]
+        },
+        {
+          "id": "L1-P01-009",
+          "en": "What do you do?",
+          "ko": "무슨 일 하세요?",
+          "note_ko": "직업을 물을 때 가장 흔하게 쓰는 질문이에요. '지금 뭐 해?'가 아니라 '직업이 뭐예요?'라는 뜻이에요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "So, what do you do?",
+              "ko": "그래서, 무슨 일 하세요?"
+            }
+          ],
+          "accept": [
+            "What do you do for work?",
+            "What's your job?"
+          ],
+          "detect": [
+            "what do you do"
+          ],
+          "check": [
+            "what do you do"
+          ]
+        },
+        {
+          "id": "L1-P01-010",
+          "en": "I work in an office.",
+          "ko": "사무실에서 일해요.",
+          "note_ko": "직업을 간단히 말할 때 I work in이나 I work at 뒤에 일하는 곳을 붙여요. 예: I work at a bank. (은행에서 일해요)",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "I work in an office downtown.",
+              "ko": "시내에 있는 사무실에서 일해요."
+            },
+            {
+              "en": "I work at a bank.",
+              "ko": "은행에서 일해요."
+            }
+          ],
+          "accept": [
+            "I work at an office."
+          ],
+          "detect": [
+            "i work in an office",
+            "i work at an office"
+          ],
+          "check": [
+            "work in an office"
+          ]
+        }
+      ],
+      "script": {
+        "id": "L1-P01-D02-S",
+        "setting_ko": "다음 날 아침, 엘리베이터에서 Sam을 다시 만난다",
+        "lines": [
+          {
+            "who": "sam",
+            "en": "Morning! Are you new in town, too?",
+            "ko": "좋은 아침이에요! 이 도시도 처음이에요?"
+          },
+          {
+            "who": "me",
+            "en": "Yes. I just moved here.",
+            "ko": "네. 여기 막 이사 왔어요.",
+            "uses": [
+              "L1-P01-008"
+            ],
+            "accept": [
+              "Yeah, I just moved in."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Oh, cool. So, where are you from?",
+            "ko": "오, 그렇구나. 그럼 어디서 왔어요?"
+          },
+          {
+            "who": "me",
+            "en": "I'm from Korea.",
+            "ko": "저는 한국에서 왔어요.",
+            "uses": [
+              "L1-P01-007"
+            ],
+            "accept": [
+              "I'm from South Korea."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Korea! I love Korean food. My favorite is kimchi stew.",
+            "ko": "한국이요! 저 한국 음식 정말 좋아해요. 김치찌개가 제일 좋아요."
+          },
+          {
+            "who": "me",
+            "en": "Nice! Where are you from?",
+            "ko": "좋네요! 당신은 어디서 왔어요?",
+            "uses": [
+              "L1-P01-006"
+            ],
+            "accept": [
+              "Cool! Where do you come from?"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "I grew up right here in New Harbor.",
+            "ko": "저는 바로 여기 New Harbor에서 자랐어요."
+          },
+          {
+            "who": "me",
+            "en": "What do you do?",
+            "ko": "무슨 일 하세요?",
+            "uses": [
+              "L1-P01-009"
+            ],
+            "accept": [
+              "What do you do for work?"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "I fix bikes. I have a small shop on Maple Street. What about you?",
+            "ko": "자전거를 고쳐요. Maple Street에 작은 가게가 있어요. 당신은요?"
+          },
+          {
+            "who": "me",
+            "en": "I work in an office.",
+            "ko": "저는 사무실에서 일해요.",
+            "uses": [
+              "L1-P01-010"
+            ],
+            "accept": [
+              "I work at an office."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Nice. If your bike ever breaks, come see me!",
+            "ko": "좋네요. 혹시 자전거가 고장 나면 저한테 와요!"
+          }
+        ]
+      },
+      "quest": {
+        "npc": "tony",
+        "place": "foodtruck",
+        "goal_ko": "푸드트럭 주인 Tony에게 I just moved here.로 자기소개를 해 보세요",
+        "target": "L1-P01-008",
+        "opener_en": "Hey there! I haven't seen you before. You new around here?"
+      }
+    },
+    {
+      "id": "L1-P01-D03",
+      "title_ko": "고마움과 사과",
+      "expressions": [
+        {
+          "id": "L1-P01-011",
+          "en": "Thanks a lot.",
+          "ko": "정말 고마워.",
+          "note_ko": "Thank you보다 조금 더 편하고, 고마운 마음이 큰 표현이에요. 친구나 이웃에게 자주 써요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Thanks a lot for your help.",
+              "ko": "도와줘서 정말 고마워."
+            }
+          ],
+          "accept": [
+            "Thank you so much.",
+            "Thanks so much.",
+            "Thank you very much."
+          ],
+          "detect": [
+            "thanks a lot",
+            "thank you so much",
+            "thanks so much"
+          ],
+          "check": [
+            "thanks a lot"
+          ]
+        },
+        {
+          "id": "L1-P01-012",
+          "en": "No problem.",
+          "ko": "별거 아니야. / 괜찮아.",
+          "note_ko": "누가 고맙다고 할 때 '별것 아니에요'라는 뜻으로 대답해요. 부탁을 들어줄 때 '그럼요'라는 뜻으로도 써요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "No problem. Anytime.",
+              "ko": "별거 아니야. 언제든지."
+            }
+          ],
+          "accept": [
+            "You're welcome.",
+            "Sure thing.",
+            "No worries."
+          ],
+          "detect": [
+            "no problem"
+          ],
+          "check": [
+            "no problem"
+          ]
+        },
+        {
+          "id": "L1-P01-013",
+          "en": "Sorry about that.",
+          "ko": "그건 미안해(요).",
+          "note_ko": "작은 실수를 사과할 때 써요. 발을 밟았거나 답장을 늦게 했을 때처럼 가벼운 상황에 잘 어울려요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "Oh, sorry about that! Are you okay?",
+              "ko": "아, 미안해요! 괜찮아요?"
+            }
+          ],
+          "accept": [
+            "I'm sorry about that.",
+            "Sorry!"
+          ],
+          "detect": [
+            "sorry about that"
+          ],
+          "check": [
+            "sorry about that"
+          ]
+        },
+        {
+          "id": "L1-P01-014",
+          "en": "No worries.",
+          "ko": "괜찮아, 걱정 마.",
+          "note_ko": "누가 사과하거나 고마워할 때 '괜찮아요, 신경 쓰지 마세요'라는 뜻으로 써요. 아주 편하고 친근한 말투예요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "No worries. It happens.",
+              "ko": "괜찮아. 그럴 수 있지."
+            }
+          ],
+          "accept": [
+            "It's okay.",
+            "That's okay.",
+            "No problem."
+          ],
+          "detect": [
+            "no worries"
+          ],
+          "check": [
+            "no worries"
+          ]
+        },
+        {
+          "id": "L1-P01-015",
+          "en": "I appreciate it.",
+          "ko": "정말 고마워요. (감사하게 생각해요)",
+          "note_ko": "Thank you보다 조금 더 진심이 담긴 감사 표현이에요. 누가 시간을 내서 도와줬을 때 잘 어울려요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "Thanks for waiting. I appreciate it.",
+              "ko": "기다려줘서 고마워요. 정말 감사해요."
+            }
+          ],
+          "accept": [
+            "I really appreciate it.",
+            "I appreciate your help."
+          ],
+          "detect": [
+            "i appreciate it",
+            "i really appreciate it",
+            "appreciate your help"
+          ],
+          "check": [
+            "i appreciate it"
+          ]
+        }
+      ],
+      "script": {
+        "id": "L1-P01-D03-S",
+        "setting_ko": "토요일 오후, 무거운 이삿짐 상자를 옮기는데 Sam이 지나간다",
+        "lines": [
+          {
+            "who": "sam",
+            "en": "Whoa, that box looks heavy. Need a hand?",
+            "ko": "와, 그 상자 무거워 보이네요. 도와줄까요?"
+          },
+          {
+            "who": "me",
+            "en": "Yes, please. Thanks a lot.",
+            "ko": "네, 부탁해요. 정말 고마워요.",
+            "uses": [
+              "L1-P01-011"
+            ],
+            "accept": [
+              "Yes, please. Thank you so much."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Okay, I've got it. Where does it go?",
+            "ko": "좋아요, 제가 들게요. 어디에 둬요?"
+          },
+          {
+            "who": "me",
+            "en": "In the kitchen. I appreciate it.",
+            "ko": "부엌에요. 정말 감사해요.",
+            "uses": [
+              "L1-P01-015"
+            ],
+            "accept": [
+              "In the kitchen. I really appreciate it."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Ouch! You stepped on my foot.",
+            "ko": "아야! 제 발 밟았어요."
+          },
+          {
+            "who": "me",
+            "en": "Oh no! Sorry about that.",
+            "ko": "앗! 미안해요.",
+            "uses": [
+              "L1-P01-013"
+            ],
+            "accept": [
+              "Oh no! I'm so sorry."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Ha, it's okay. Oh, and sorry, your mail came to my place by mistake. Here.",
+            "ko": "하하, 괜찮아요. 아, 그리고 미안해요. 당신 우편물이 실수로 우리 집에 왔어요. 여기요."
+          },
+          {
+            "who": "me",
+            "en": "No worries.",
+            "ko": "괜찮아요.",
+            "uses": [
+              "L1-P01-014"
+            ],
+            "accept": [
+              "That's okay."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "And thanks for the cold drink, by the way.",
+            "ko": "그리고 시원한 음료 고마워요."
+          },
+          {
+            "who": "me",
+            "en": "No problem.",
+            "ko": "별거 아니에요.",
+            "uses": [
+              "L1-P01-012"
+            ],
+            "accept": [
+              "You're welcome."
+            ]
+          }
+        ]
+      },
+      "quest": {
+        "npc": "maria",
+        "place": "cafe",
+        "goal_ko": "카페에서 Maria가 무언가를 주면 Thanks a lot.으로 고마움을 표현해 보세요",
+        "target": "L1-P01-011",
+        "opener_en": "Hi! We're giving out free cookies today. Want one?"
+      }
+    },
+    {
+      "id": "L1-P01-D04",
+      "title_ko": "맞장구치며 대답하기",
+      "expressions": [
+        {
+          "id": "L1-P01-016",
+          "en": "Sounds good.",
+          "ko": "좋아(요).",
+          "note_ko": "누가 계획이나 제안을 말했을 때 '좋아, 그렇게 하자'라는 뜻으로 대답해요. 미국에서 정말 자주 듣는 말이에요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Sounds good. See you at six.",
+              "ko": "좋아. 6시에 봐."
+            }
+          ],
+          "accept": [
+            "Sounds great.",
+            "That sounds good.",
+            "Okay, sounds good."
+          ],
+          "detect": [
+            "sounds good",
+            "sounds great"
+          ],
+          "check": [
+            "sounds good"
+          ]
+        },
+        {
+          "id": "L1-P01-017",
+          "en": "Sure.",
+          "ko": "그래. / 물론이지.",
+          "note_ko": "부탁이나 제안을 기꺼이 받아들일 때 써요. Yes보다 부드럽고 친근해요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Sure, I can help.",
+              "ko": "그래, 도와줄게."
+            }
+          ],
+          "accept": [
+            "Of course.",
+            "Yeah, sure.",
+            "Sure thing."
+          ],
+          "detect": [
+            "sure",
+            "of course"
+          ],
+          "check": [
+            "sure"
+          ]
+        },
+        {
+          "id": "L1-P01-018",
+          "en": "Me too.",
+          "ko": "나도.",
+          "note_ko": "상대와 같은 생각이나 상황일 때 써요. '나도 아니야'처럼 부정문에 맞장구칠 때는 Me neither.를 써요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Oh, me too! I love it.",
+              "ko": "오, 나도! 정말 좋아해."
+            }
+          ],
+          "accept": [
+            "Same here.",
+            "So do I."
+          ],
+          "detect": [
+            "me too",
+            "same here"
+          ],
+          "check": [
+            "me too"
+          ]
+        },
+        {
+          "id": "L1-P01-019",
+          "en": "Really?",
+          "ko": "정말? / 진짜?",
+          "note_ko": "놀랍거나 흥미로운 이야기를 들었을 때 맞장구로 써요. 말끝을 올려서 말해요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Really? That's so cool!",
+              "ko": "정말? 진짜 멋지다!"
+            }
+          ],
+          "accept": [
+            "Oh, really?",
+            "Seriously?",
+            "Is that right?"
+          ],
+          "detect": [
+            "really"
+          ],
+          "check": [
+            "really"
+          ]
+        },
+        {
+          "id": "L1-P01-020",
+          "en": "That's great!",
+          "ko": "잘됐다! / 좋다!",
+          "note_ko": "좋은 소식을 들었을 때 기뻐하며 하는 말이에요. That's awesome!도 비슷하게 자주 써요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "You got the job? That's great!",
+              "ko": "합격했어? 잘됐다!"
+            }
+          ],
+          "accept": [
+            "That's awesome!",
+            "That's wonderful!",
+            "Great!"
+          ],
+          "detect": [
+            "that is great",
+            "that is awesome"
+          ],
+          "check": [
+            "that's great"
+          ]
+        }
+      ],
+      "script": {
+        "id": "L1-P01-D04-S",
+        "setting_ko": "일요일 아침, Sam이 동네 산책을 가자고 한다",
+        "lines": [
+          {
+            "who": "sam",
+            "en": "Hey! I'm going for a walk around the neighborhood. Want to come?",
+            "ko": "안녕하세요! 동네 한 바퀴 걸으려는데, 같이 갈래요?"
+          },
+          {
+            "who": "me",
+            "en": "Sure!",
+            "ko": "그래요!",
+            "uses": [
+              "L1-P01-017"
+            ],
+            "accept": [
+              "Of course!",
+              "Sure thing!"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Great. There's a really good bakery on the corner. I go there every weekend.",
+            "ko": "좋아요. 모퉁이에 정말 맛있는 빵집이 있어요. 저는 주말마다 거기 가요."
+          },
+          {
+            "who": "me",
+            "en": "Really?",
+            "ko": "정말요?",
+            "uses": [
+              "L1-P01-019"
+            ],
+            "accept": [
+              "Oh, really?"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Yeah! Their bagels are the best. I love bagels.",
+            "ko": "네! 거기 베이글이 최고예요. 저 베이글 진짜 좋아해요."
+          },
+          {
+            "who": "me",
+            "en": "Me too.",
+            "ko": "저도요.",
+            "uses": [
+              "L1-P01-018"
+            ],
+            "accept": [
+              "Same here."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "And guess what? Today, the coffee is free with any bagel.",
+            "ko": "그리고 있잖아요, 오늘은 베이글을 사면 커피가 공짜래요."
+          },
+          {
+            "who": "me",
+            "en": "That's great!",
+            "ko": "잘됐네요!",
+            "uses": [
+              "L1-P01-020"
+            ],
+            "accept": [
+              "That's awesome!"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Let's get bagels first, and then walk to the park.",
+            "ko": "먼저 베이글을 사고, 그다음에 공원까지 걸어가요."
+          },
+          {
+            "who": "me",
+            "en": "Sounds good.",
+            "ko": "좋아요.",
+            "uses": [
+              "L1-P01-016"
+            ],
+            "accept": [
+              "Sounds great.",
+              "That sounds good."
+            ]
+          }
+        ]
+      },
+      "quest": {
+        "npc": "grace",
+        "place": "park",
+        "goal_ko": "Grace의 좋은 소식을 듣고 That's great!로 함께 기뻐해 주세요",
+        "target": "L1-P01-020",
+        "opener_en": "Guess what? My granddaughter is coming to visit me this weekend!"
+      }
+    },
+    {
+      "id": "L1-P01-D05",
+      "title_ko": "도움 요청하고 다시 물어보기",
+      "expressions": [
+        {
+          "id": "L1-P01-021",
+          "en": "Excuse me.",
+          "ko": "실례합니다. / 잠시만요.",
+          "note_ko": "모르는 사람에게 말을 걸 때, 사람들 사이를 지나갈 때 써요. 지나갈 때는 '잠시만요'라는 뜻이에요.",
+          "register": "polite",
+          "examples": [
+            {
+              "en": "Excuse me. Is this seat taken?",
+              "ko": "실례합니다. 이 자리 주인 있어요?"
+            },
+            {
+              "en": "Excuse me, coming through!",
+              "ko": "잠시만요, 좀 지나갈게요!"
+            }
+          ],
+          "accept": [
+            "Pardon me.",
+            "Excuse me, please."
+          ],
+          "detect": [
+            "excuse me",
+            "pardon me"
+          ],
+          "check": [
+            "excuse me"
+          ]
+        },
+        {
+          "id": "L1-P01-022",
+          "en": "Can you help me?",
+          "ko": "좀 도와줄 수 있어요?",
+          "note_ko": "도움이 필요할 때 쓰는 기본 표현이에요. 더 공손하게 말하려면 Could you help me?라고 해요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "Excuse me. Can you help me?",
+              "ko": "실례합니다. 좀 도와주실 수 있어요?"
+            }
+          ],
+          "accept": [
+            "Could you help me?",
+            "Can you give me a hand?"
+          ],
+          "detect": [
+            "can you help me",
+            "could you help me"
+          ],
+          "check": [
+            "can you help me"
+          ]
+        },
+        {
+          "id": "L1-P01-023",
+          "en": "Could you say that again?",
+          "ko": "다시 한번 말해 줄래요?",
+          "note_ko": "말을 못 알아들었을 때 쓰는 공손한 표현이에요. 원어민은 말이 빠르니까, 부끄러워하지 말고 자주 쓰세요!",
+          "register": "polite",
+          "examples": [
+            {
+              "en": "Sorry, could you say that again?",
+              "ko": "죄송한데, 다시 한번 말해 줄래요?"
+            }
+          ],
+          "accept": [
+            "Can you say that again?",
+            "Sorry, could you repeat that?"
+          ],
+          "detect": [
+            "say that again",
+            "repeat that"
+          ],
+          "check": [
+            "say that again"
+          ]
+        },
+        {
+          "id": "L1-P01-024",
+          "en": "What does that mean?",
+          "ko": "그게 무슨 뜻이에요?",
+          "note_ko": "모르는 단어나 표현이 나왔을 때 써요. 원어민 친구에게 물어보면 쉽게 설명해 줄 거예요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "Load it? What does that mean?",
+              "ko": "'load it'이요? 그게 무슨 뜻이에요?"
+            }
+          ],
+          "accept": [
+            "What do you mean?",
+            "What does it mean?"
+          ],
+          "detect": [
+            "what does that mean",
+            "what does it mean",
+            "what do you mean"
+          ],
+          "check": [
+            "what does that mean"
+          ]
+        },
+        {
+          "id": "L1-P01-025",
+          "en": "I don't understand.",
+          "ko": "이해가 안 돼요.",
+          "note_ko": "잘 모르겠을 때 솔직하게 말하는 표현이에요. 앞에 Sorry를 붙이면 더 부드러워요: Sorry, I don't understand.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "Sorry, I don't understand.",
+              "ko": "죄송해요, 이해가 안 돼요."
+            }
+          ],
+          "accept": [
+            "I don't get it.",
+            "Sorry, I didn't understand."
+          ],
+          "detect": [
+            "i do not understand",
+            "i do not get it"
+          ],
+          "check": [
+            "i don't understand"
+          ]
+        }
+      ],
+      "script": {
+        "id": "L1-P01-D05-S",
+        "setting_ko": "월요일 아침, Sam이 지하철 타는 법을 알려준다",
+        "lines": [
+          {
+            "who": "sam",
+            "en": "Okay, this is our station. Do you have a transit card?",
+            "ko": "자, 여기가 우리 역이에요. 교통카드 있어요?"
+          },
+          {
+            "who": "me",
+            "en": "No, I don't. Can you help me?",
+            "ko": "아니요, 없어요. 좀 도와줄 수 있어요?",
+            "uses": [
+              "L1-P01-022"
+            ],
+            "accept": [
+              "No. Could you help me?"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Sure. Get a card from the machine, load it, and tap it at the gate.",
+            "ko": "그럼요. 기계에서 카드를 사서, 돈을 넣고, 개찰구에 찍으면 돼요."
+          },
+          {
+            "who": "me",
+            "en": "Sorry, I don't understand.",
+            "ko": "미안해요, 이해가 안 돼요.",
+            "uses": [
+              "L1-P01-025"
+            ],
+            "accept": [
+              "Sorry, I don't get it."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "No worries. First, load it.",
+            "ko": "괜찮아요. 먼저, 카드에 돈을 넣으세요."
+          },
+          {
+            "who": "me",
+            "en": "Sorry, what does that mean?",
+            "ko": "미안해요, 그게 무슨 뜻이에요?",
+            "uses": [
+              "L1-P01-024"
+            ],
+            "accept": [
+              "Sorry, what do you mean?"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "It means you put money on the card. Like charging your phone.",
+            "ko": "카드에 돈을 넣는다는 뜻이에요. 휴대폰 충전하는 것처럼요."
+          },
+          {
+            "who": "sam",
+            "en": "Oh! That's our train. It's the express to Harbor Square, so we have to hurry!",
+            "ko": "앗! 우리 기차예요. Harbor Square행 급행이라서 서둘러야 해요!"
+          },
+          {
+            "who": "me",
+            "en": "Sorry, could you say that again?",
+            "ko": "미안해요, 다시 한번 말해 줄래요?",
+            "uses": [
+              "L1-P01-023"
+            ],
+            "accept": [
+              "Sorry, can you say that again?"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Our train! Run!",
+            "ko": "우리 기차요! 뛰어요!"
+          },
+          {
+            "who": "me",
+            "en": "Excuse me! Excuse me!",
+            "ko": "잠시만요! 잠시만요!",
+            "uses": [
+              "L1-P01-021"
+            ],
+            "accept": [
+              "Excuse me, please!"
+            ]
+          }
+        ]
+      },
+      "quest": {
+        "npc": "tony",
+        "place": "foodtruck",
+        "goal_ko": "Tony가 빠르게 말하면 Could you say that again?으로 다시 물어보세요",
+        "target": "L1-P01-023",
+        "opener_en": "Hey, welcome back! You want the usual chili dog with everything on it?"
+      }
+    }
+  ]
+}

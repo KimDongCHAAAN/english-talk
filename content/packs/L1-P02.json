@@ -1,0 +1,1199 @@
+{
+  "format": 1,
+  "pack": "L1-P02",
+  "level": 1,
+  "title_ko": "둘째 주: 동네에서 생활하기",
+  "lessons": [
+    {
+      "id": "L1-P02-D06",
+      "title_ko": "카페에서 주문하기",
+      "expressions": [
+        {
+          "id": "L1-P02-026",
+          "en": "Can I get a latte?",
+          "ko": "라떼 한 잔 주실래요?",
+          "note_ko": "카페나 식당에서 주문할 때 Can I get 뒤에 메뉴를 붙여요. I want...보다 훨씬 자연스럽고 공손하게 들려요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "Can I get an iced coffee?",
+              "ko": "아이스커피 한 잔 주실래요?"
+            },
+            {
+              "en": "Can I get a bagel, please?",
+              "ko": "베이글 하나 주시겠어요?"
+            }
+          ],
+          "accept": [
+            "Could I get a latte?",
+            "Can I have a latte?",
+            "I'd like a latte, please."
+          ],
+          "detect": [
+            "can i get",
+            "could i get",
+            "can i have"
+          ],
+          "check": [
+            "can i get a"
+          ]
+        },
+        {
+          "id": "L1-P02-027",
+          "en": "To go, please.",
+          "ko": "포장해 주세요.",
+          "note_ko": "카페에서 For here or to go?(드시고 가세요, 가져가세요?)라고 물으면 이렇게 대답해요. 매장에서 먹으려면 For here, please.라고 해요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "To go, please. Thank you!",
+              "ko": "포장해 주세요. 감사합니다!"
+            }
+          ],
+          "accept": [
+            "It's to go.",
+            "To go."
+          ],
+          "detect": [
+            "to go please",
+            "it is to go"
+          ],
+          "check": [
+            "to go"
+          ]
+        },
+        {
+          "id": "L1-P02-028",
+          "en": "How much is it?",
+          "ko": "얼마예요?",
+          "note_ko": "가격을 물을 때 써요. 여러 개를 사면 How much is it all together?(다 해서 얼마예요?)라고 해요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "This looks nice. How much is it?",
+              "ko": "이거 좋아 보이네요. 얼마예요?"
+            }
+          ],
+          "accept": [
+            "How much does it cost?",
+            "How much is that?"
+          ],
+          "detect": [
+            "how much is it",
+            "how much is that",
+            "how much does it cost"
+          ],
+          "check": [
+            "how much is it"
+          ]
+        },
+        {
+          "id": "L1-P02-029",
+          "en": "Do you take credit cards?",
+          "ko": "카드 돼요? / 카드 받아요?",
+          "note_ko": "카드로 계산할 수 있는지 물을 때 써요. 미국에서는 체크카드도 보통 credit card라고 묶어서 말해요. 작은 가게나 푸드트럭 중에는 현금만 받는 곳도 있어요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "Do you take credit cards, or is it cash only?",
+              "ko": "카드 돼요, 아니면 현금만 돼요?"
+            }
+          ],
+          "accept": [
+            "Can I pay with a credit card?",
+            "Can I pay with a card?",
+            "Do you take cards?"
+          ],
+          "detect": [
+            "take credit cards",
+            "take cards",
+            "pay with a credit card",
+            "pay with a card",
+            "pay by card"
+          ],
+          "check": [
+            "take credit cards",
+            "pay with a credit card"
+          ]
+        },
+        {
+          "id": "L1-P02-030",
+          "en": "Here you go.",
+          "ko": "여기 있어요.",
+          "note_ko": "물건이나 돈을 건네줄 때 하는 말이에요. 점원이 음료를 줄 때도 자주 들을 수 있어요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Here you go. Keep the change.",
+              "ko": "여기 있어요. 잔돈은 가지세요."
+            }
+          ],
+          "accept": [
+            "Here you are.",
+            "Here it is."
+          ],
+          "detect": [
+            "here you go",
+            "here you are"
+          ],
+          "check": [
+            "here you go"
+          ]
+        }
+      ],
+      "script": {
+        "id": "L1-P02-D06-S",
+        "setting_ko": "Sam이 단골 카페에 데려간다. 점원은 Maria",
+        "lines": [
+          {
+            "who": "sam",
+            "en": "This is my favorite cafe. Maria makes the best coffee in town.",
+            "ko": "여기가 제가 제일 좋아하는 카페예요. Maria가 이 동네에서 커피를 제일 잘 만들어요."
+          },
+          {
+            "who": "maria",
+            "en": "Hi, Sam! Oh, a new face! What can I get for you?",
+            "ko": "안녕, Sam! 오, 처음 보는 분이네요! 뭘 드릴까요?"
+          },
+          {
+            "who": "me",
+            "en": "Hi! Can I get a latte?",
+            "ko": "안녕하세요! 라떼 한 잔 주실래요?",
+            "uses": [
+              "L1-P02-026"
+            ],
+            "accept": [
+              "Hi! Could I get a latte?"
+            ]
+          },
+          {
+            "who": "maria",
+            "en": "Sure! For here or to go?",
+            "ko": "물론이죠! 드시고 가세요, 가져가세요?"
+          },
+          {
+            "who": "me",
+            "en": "To go, please.",
+            "ko": "포장해 주세요.",
+            "uses": [
+              "L1-P02-027"
+            ],
+            "accept": [
+              "It's to go, please."
+            ]
+          },
+          {
+            "who": "maria",
+            "en": "You got it. Anything else?",
+            "ko": "알겠어요. 다른 건요?"
+          },
+          {
+            "who": "me",
+            "en": "No, thanks. How much is it?",
+            "ko": "아니요, 괜찮아요. 얼마예요?",
+            "uses": [
+              "L1-P02-028"
+            ],
+            "accept": [
+              "No, thank you. How much is that?"
+            ]
+          },
+          {
+            "who": "maria",
+            "en": "That's four fifty.",
+            "ko": "4달러 50센트예요."
+          },
+          {
+            "who": "me",
+            "en": "Do you take credit cards?",
+            "ko": "카드 돼요?",
+            "uses": [
+              "L1-P02-029"
+            ],
+            "accept": [
+              "Can I pay with a card?"
+            ]
+          },
+          {
+            "who": "maria",
+            "en": "We sure do!",
+            "ko": "그럼요!"
+          },
+          {
+            "who": "me",
+            "en": "Here you go.",
+            "ko": "여기 있어요.",
+            "uses": [
+              "L1-P02-030"
+            ],
+            "accept": [
+              "Here you are."
+            ]
+          },
+          {
+            "who": "maria",
+            "en": "Thanks! Your latte will be ready in a minute.",
+            "ko": "감사합니다! 라떼는 금방 나와요."
+          }
+        ]
+      },
+      "quest": {
+        "npc": "maria",
+        "place": "cafe",
+        "goal_ko": "카페에서 Maria에게 Can I get ...?으로 음료를 주문해 보세요",
+        "target": "L1-P02-026",
+        "opener_en": "Hi there! What can I get for you today?"
+      }
+    },
+    {
+      "id": "L1-P02-D07",
+      "title_ko": "기분과 상태 말하기",
+      "expressions": [
+        {
+          "id": "L1-P02-031",
+          "en": "I'm so tired.",
+          "ko": "너무 피곤해.",
+          "note_ko": "아주 피곤할 때 써요. so는 '너무, 정말'이라는 뜻으로 느낌을 강하게 해줘요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "I'm so tired. I worked all day.",
+              "ko": "너무 피곤해. 하루 종일 일했어."
+            }
+          ],
+          "accept": [
+            "I'm really tired.",
+            "I'm exhausted.",
+            "I'm very tired."
+          ],
+          "detect": [
+            "i am so tired",
+            "i am really tired",
+            "i am exhausted"
+          ],
+          "check": [
+            "i'm so tired"
+          ]
+        },
+        {
+          "id": "L1-P02-032",
+          "en": "I'm starving.",
+          "ko": "배고파 죽겠어.",
+          "note_ko": "아주 배고플 때 과장해서 하는 말이에요. 진짜 굶었다는 뜻이 아니라 '엄청 배고프다'는 뜻이에요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Let's eat. I'm starving.",
+              "ko": "밥 먹자. 배고파 죽겠어."
+            }
+          ],
+          "accept": [
+            "I'm so hungry.",
+            "I'm really hungry."
+          ],
+          "detect": [
+            "i am starving",
+            "i am so hungry",
+            "i am really hungry"
+          ],
+          "check": [
+            "i'm starving"
+          ]
+        },
+        {
+          "id": "L1-P02-033",
+          "en": "I'm so full.",
+          "ko": "너무 배불러.",
+          "note_ko": "많이 먹어서 배가 부를 때 써요. 더 먹으라고 권할 때 No thanks, I'm full.로 거절할 수도 있어요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "No thanks, I'm so full.",
+              "ko": "괜찮아요, 너무 배불러요."
+            }
+          ],
+          "accept": [
+            "I'm full.",
+            "I'm stuffed.",
+            "I'm really full."
+          ],
+          "detect": [
+            "i am so full",
+            "i am full",
+            "i am stuffed"
+          ],
+          "check": [
+            "i'm so full"
+          ]
+        },
+        {
+          "id": "L1-P02-034",
+          "en": "I feel much better.",
+          "ko": "훨씬 나아졌어.",
+          "note_ko": "아프거나 힘들었다가 좋아졌을 때 써요. much가 '훨씬'이라는 뜻이에요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "I took a nap. I feel much better now.",
+              "ko": "낮잠을 잤어. 이제 훨씬 나아졌어."
+            }
+          ],
+          "accept": [
+            "I feel a lot better.",
+            "I feel better now."
+          ],
+          "detect": [
+            "feel much better",
+            "feel a lot better",
+            "feel better"
+          ],
+          "check": [
+            "i feel much better"
+          ]
+        },
+        {
+          "id": "L1-P02-035",
+          "en": "I'm a little busy right now.",
+          "ko": "지금은 좀 바빠.",
+          "note_ko": "부탁이나 제안을 부드럽게 미룰 때 써요. a little(조금)을 넣으면 덜 딱딱하게 들려요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "Sorry, I'm a little busy right now. Can I call you later?",
+              "ko": "미안, 지금은 좀 바빠. 나중에 전화해도 될까?"
+            }
+          ],
+          "accept": [
+            "I'm a bit busy right now.",
+            "I'm kind of busy right now.",
+            "I'm busy right now."
+          ],
+          "detect": [
+            "a little busy",
+            "a bit busy",
+            "kind of busy",
+            "busy right now"
+          ],
+          "check": [
+            "a little busy"
+          ]
+        }
+      ],
+      "script": {
+        "id": "L1-P02-D07-S",
+        "setting_ko": "퇴근 후 저녁, 아파트 로비에서 Sam을 만난다",
+        "lines": [
+          {
+            "who": "sam",
+            "en": "Hey! You look tired. Long day?",
+            "ko": "안녕하세요! 피곤해 보이네요. 힘든 하루였어요?"
+          },
+          {
+            "who": "me",
+            "en": "Yeah. I'm so tired.",
+            "ko": "네. 너무 피곤해요.",
+            "uses": [
+              "L1-P02-031"
+            ],
+            "accept": [
+              "Yeah. I'm really tired."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Did you eat dinner yet?",
+            "ko": "저녁은 먹었어요?"
+          },
+          {
+            "who": "me",
+            "en": "No. I'm starving.",
+            "ko": "아니요. 배고파 죽겠어요.",
+            "uses": [
+              "L1-P02-032"
+            ],
+            "accept": [
+              "No. I'm so hungry."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Then let's go to Tony's food truck. His hot dogs are amazing!",
+            "ko": "그럼 Tony네 푸드트럭에 가요. 거기 핫도그 정말 맛있어요!"
+          },
+          {
+            "who": "sam",
+            "en": "So? How was it?",
+            "ko": "(다 먹고 나서) 그래서, 어땠어요?"
+          },
+          {
+            "who": "me",
+            "en": "It was so good. I'm so full.",
+            "ko": "정말 맛있었어요. 너무 배불러요.",
+            "uses": [
+              "L1-P02-033"
+            ],
+            "accept": [
+              "So good. I'm stuffed."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Ha! Do you still feel tired?",
+            "ko": "하하! 아직도 피곤해요?"
+          },
+          {
+            "who": "me",
+            "en": "No. I feel much better.",
+            "ko": "아니요. 훨씬 나아졌어요.",
+            "uses": [
+              "L1-P02-034"
+            ],
+            "accept": [
+              "No, I feel a lot better."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Great! Want to watch a movie at my place?",
+            "ko": "잘됐네요! 우리 집에서 영화 볼래요?"
+          },
+          {
+            "who": "me",
+            "en": "Sorry, I'm a little busy right now. Maybe tomorrow?",
+            "ko": "미안해요, 지금은 좀 바빠요. 내일은 어때요?",
+            "uses": [
+              "L1-P02-035"
+            ],
+            "accept": [
+              "Sorry, I'm kind of busy right now. Maybe tomorrow?"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Sure, no problem!",
+            "ko": "그래요, 괜찮아요!"
+          }
+        ]
+      },
+      "quest": {
+        "npc": "tony",
+        "place": "foodtruck",
+        "goal_ko": "Tony의 푸드트럭에서 I'm starving.이라고 말하고 음식을 주문해 보세요",
+        "target": "L1-P02-032",
+        "opener_en": "Hey, buddy! You look hungry. What'll it be?"
+      }
+    },
+    {
+      "id": "L1-P02-D08",
+      "title_ko": "날씨 이야기",
+      "expressions": [
+        {
+          "id": "L1-P02-036",
+          "en": "It's so cold today.",
+          "ko": "오늘 너무 춥다.",
+          "note_ko": "날씨 이야기는 미국에서 가장 흔한 대화 시작 방법이에요. cold 자리에 hot(더운), windy(바람 부는)를 넣어 쓸 수 있어요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "It's so cold today. I need a warmer coat.",
+              "ko": "오늘 너무 춥다. 더 따뜻한 코트가 필요해."
+            }
+          ],
+          "accept": [
+            "It's really cold today.",
+            "It's freezing today."
+          ],
+          "detect": [
+            "so cold today",
+            "really cold today",
+            "freezing today"
+          ],
+          "check": [
+            "it's so cold"
+          ]
+        },
+        {
+          "id": "L1-P02-037",
+          "en": "Nice weather, huh?",
+          "ko": "날씨 좋다, 그치?",
+          "note_ko": "날씨가 좋을 때 가볍게 말을 거는 표현이에요. 끝에 huh?를 붙이면 '그렇지?' 하고 동의를 구하는 느낌이 나요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Nice weather, huh? Perfect for a walk.",
+              "ko": "날씨 좋다, 그치? 산책하기 딱 좋네."
+            }
+          ],
+          "accept": [
+            "Nice weather today, huh?",
+            "Beautiful day, huh?",
+            "The weather is nice, isn't it?"
+          ],
+          "detect": [
+            "nice weather",
+            "beautiful day"
+          ],
+          "check": [
+            "nice weather"
+          ]
+        },
+        {
+          "id": "L1-P02-038",
+          "en": "It looks like rain.",
+          "ko": "비 올 것 같아.",
+          "note_ko": "하늘이 흐릴 때 써요. It looks like it's going to rain.이라고 길게 말해도 같은 뜻이에요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "Take an umbrella. It looks like rain.",
+              "ko": "우산 챙겨. 비 올 것 같아."
+            }
+          ],
+          "accept": [
+            "It looks like it's going to rain.",
+            "I think it's going to rain."
+          ],
+          "detect": [
+            "looks like rain",
+            "going to rain"
+          ],
+          "check": [
+            "looks like rain"
+          ]
+        },
+        {
+          "id": "L1-P02-039",
+          "en": "Do you have an umbrella?",
+          "ko": "우산 있어?",
+          "note_ko": "Do you have 뒤에 물건을 붙이면 '그거 있어?'라는 질문이 돼요. 빌려 달라는 뜻으로도 자주 써요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "It's raining. Do you have an umbrella?",
+              "ko": "비 온다. 우산 있어?"
+            }
+          ],
+          "accept": [
+            "Did you bring an umbrella?",
+            "Have you got an umbrella?"
+          ],
+          "detect": [
+            "have an umbrella",
+            "bring an umbrella",
+            "got an umbrella"
+          ],
+          "check": [
+            "do you have an umbrella"
+          ]
+        },
+        {
+          "id": "L1-P02-040",
+          "en": "Stay warm.",
+          "ko": "따뜻하게 지내. / 감기 조심해.",
+          "note_ko": "추운 날 헤어질 때 하는 다정한 인사예요. 더운 날에는 Stay cool.이라고 해요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "See you tomorrow. Stay warm!",
+              "ko": "내일 봐. 따뜻하게 입고 다녀!"
+            }
+          ],
+          "accept": [
+            "Keep warm.",
+            "Stay warm out there."
+          ],
+          "detect": [
+            "stay warm",
+            "keep warm"
+          ],
+          "check": [
+            "stay warm"
+          ]
+        }
+      ],
+      "script": {
+        "id": "L1-P02-D08-S",
+        "setting_ko": "아침, 아파트 앞에서 Sam을 만난다. 맑던 하늘이 점점 흐려진다",
+        "lines": [
+          {
+            "who": "sam",
+            "en": "Morning! Look at that blue sky.",
+            "ko": "좋은 아침이에요! 저 파란 하늘 좀 봐요."
+          },
+          {
+            "who": "me",
+            "en": "Nice weather, huh?",
+            "ko": "날씨 좋네요, 그쵸?",
+            "uses": [
+              "L1-P02-037"
+            ],
+            "accept": [
+              "Beautiful day, huh?"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Yeah, but it's so windy. I'm freezing!",
+            "ko": "네, 그런데 바람이 너무 불어요. 얼어 죽겠어요!"
+          },
+          {
+            "who": "me",
+            "en": "Me too. It's so cold today.",
+            "ko": "저도요. 오늘 너무 춥네요.",
+            "uses": [
+              "L1-P02-036"
+            ],
+            "accept": [
+              "Me too. It's really cold today."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Hmm, look at those dark clouds over there.",
+            "ko": "음, 저기 먹구름 좀 봐요."
+          },
+          {
+            "who": "me",
+            "en": "It looks like rain.",
+            "ko": "비 올 것 같아요.",
+            "uses": [
+              "L1-P02-038"
+            ],
+            "accept": [
+              "I think it's going to rain."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Oh no. I have to walk to my shop.",
+            "ko": "아, 이런. 가게까지 걸어가야 하는데."
+          },
+          {
+            "who": "me",
+            "en": "Do you have an umbrella?",
+            "ko": "우산 있어요?",
+            "uses": [
+              "L1-P02-039"
+            ],
+            "accept": [
+              "Did you bring an umbrella?"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "No... Can I borrow yours?",
+            "ko": "아니요... 당신 거 빌려도 돼요?"
+          },
+          {
+            "who": "me",
+            "en": "Sure. Here you go.",
+            "ko": "그럼요. 여기요.",
+            "accept": [
+              "Of course. Here you are."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Thanks! See you tonight.",
+            "ko": "고마워요! 이따 저녁에 봐요."
+          },
+          {
+            "who": "me",
+            "en": "See you. Stay warm!",
+            "ko": "이따 봐요. 따뜻하게 하고 다녀요!",
+            "uses": [
+              "L1-P02-040"
+            ],
+            "accept": [
+              "Bye. Keep warm!"
+            ]
+          }
+        ]
+      },
+      "quest": {
+        "npc": "grace",
+        "place": "park",
+        "goal_ko": "공원에서 Grace에게 Nice weather, huh?로 날씨 이야기를 시작해 보세요",
+        "target": "L1-P02-037",
+        "opener_en": "Oh, hello, dear. Come sit with me for a minute."
+      }
+    },
+    {
+      "id": "L1-P02-D09",
+      "title_ko": "약속 잡기",
+      "expressions": [
+        {
+          "id": "L1-P02-041",
+          "en": "Are you free tonight?",
+          "ko": "오늘 밤에 시간 있어?",
+          "note_ko": "약속을 잡기 전에 시간이 되는지 물을 때 써요. tonight 대신 tomorrow나 this weekend를 넣어도 돼요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Are you free tonight? Let's get dinner.",
+              "ko": "오늘 밤에 시간 있어? 저녁 먹자."
+            }
+          ],
+          "accept": [
+            "Are you busy tonight?",
+            "Do you have time tonight?",
+            "Are you free this evening?"
+          ],
+          "detect": [
+            "are you free",
+            "are you busy tonight",
+            "do you have time tonight"
+          ],
+          "check": [
+            "are you free tonight"
+          ]
+        },
+        {
+          "id": "L1-P02-042",
+          "en": "What time?",
+          "ko": "몇 시에?",
+          "note_ko": "약속 시간을 물을 때 짧게 쓰는 질문이에요. 길게 말하면 What time does it start?(몇 시에 시작해?)예요. 지금 몇 시인지 물을 때는 What time is it?이라고 해요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "What time should we meet?",
+              "ko": "몇 시에 만날까?"
+            },
+            {
+              "en": "What time does it start?",
+              "ko": "몇 시에 시작해?"
+            }
+          ],
+          "accept": [],
+          "detect": [
+            "what time"
+          ],
+          "check": [
+            "what time"
+          ]
+        },
+        {
+          "id": "L1-P02-043",
+          "en": "How about seven?",
+          "ko": "7시 어때?",
+          "note_ko": "시간이나 장소를 제안할 때 How about 뒤에 제안을 붙여요. 예: How about Friday? (금요일 어때?)",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "How about seven? Is that okay?",
+              "ko": "7시 어때? 괜찮아?"
+            },
+            {
+              "en": "How about Friday?",
+              "ko": "금요일 어때?"
+            }
+          ],
+          "accept": [
+            "What about seven?",
+            "Is seven okay?",
+            "How about seven o'clock?"
+          ],
+          "detect": [
+            "how about seven",
+            "what about seven"
+          ],
+          "check": [
+            "how about seven"
+          ]
+        },
+        {
+          "id": "L1-P02-044",
+          "en": "I'm on my way.",
+          "ko": "지금 가는 중이야.",
+          "note_ko": "약속 장소로 가고 있을 때 써요. 늦을 때 문자로도 자주 보내요: Sorry, I'm on my way!",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Sorry! I'm on my way.",
+              "ko": "미안! 지금 가는 중이야."
+            }
+          ],
+          "accept": [
+            "I'm coming.",
+            "I'll be right there."
+          ],
+          "detect": [
+            "on my way",
+            "i am coming",
+            "be right there"
+          ],
+          "check": [
+            "i'm on my way"
+          ]
+        },
+        {
+          "id": "L1-P02-045",
+          "en": "See you there.",
+          "ko": "거기서 봐.",
+          "note_ko": "만날 장소를 정한 뒤 헤어질 때 써요. there 대신 then을 넣으면 '그때 봐'라는 뜻이에요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Okay, the park at seven. See you there!",
+              "ko": "좋아, 7시에 공원. 거기서 봐!"
+            }
+          ],
+          "accept": [
+            "See you then.",
+            "I'll see you there."
+          ],
+          "detect": [
+            "see you there",
+            "see you then"
+          ],
+          "check": [
+            "see you there"
+          ]
+        }
+      ],
+      "script": {
+        "id": "L1-P02-D09-S",
+        "setting_ko": "금요일 오후, 공원에서 무료 음악회가 열린다는 소식을 들었다",
+        "lines": [
+          {
+            "who": "me",
+            "en": "Hey, Sam! Are you free tonight?",
+            "ko": "Sam! 오늘 밤에 시간 있어요?",
+            "uses": [
+              "L1-P02-041"
+            ],
+            "accept": [
+              "Hey, Sam! Are you busy tonight?"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Yeah, I think so. Why?",
+            "ko": "네, 그럴 거예요. 왜요?"
+          },
+          {
+            "who": "me",
+            "en": "There's a free concert in the park.",
+            "ko": "공원에서 무료 음악회가 있어요.",
+            "accept": [
+              "There's a concert in the park."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Oh, I love that! Let's go.",
+            "ko": "오, 좋아요! 가요."
+          },
+          {
+            "who": "me",
+            "en": "Great! What time should we meet?",
+            "ko": "좋아요! 몇 시에 만날까요?",
+            "uses": [
+              "L1-P02-042"
+            ],
+            "accept": [
+              "Great! When should we meet?"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "The concert starts at eight. Let's eat something first.",
+            "ko": "음악회는 8시에 시작해요. 먼저 뭐 좀 먹어요."
+          },
+          {
+            "who": "me",
+            "en": "How about seven?",
+            "ko": "7시 어때요?",
+            "uses": [
+              "L1-P02-043"
+            ],
+            "accept": [
+              "What about seven?"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Perfect. Let's meet at Tony's food truck.",
+            "ko": "딱 좋아요. Tony네 푸드트럭에서 만나요."
+          },
+          {
+            "who": "me",
+            "en": "Okay. See you there!",
+            "ko": "좋아요. 거기서 봐요!",
+            "uses": [
+              "L1-P02-045"
+            ],
+            "accept": [
+              "Okay. See you then!"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Hey, where are you? I'm already here!",
+            "ko": "(7시, 전화로) 어디예요? 저 벌써 왔어요!"
+          },
+          {
+            "who": "me",
+            "en": "Sorry! I'm on my way.",
+            "ko": "미안해요! 지금 가는 중이에요.",
+            "uses": [
+              "L1-P02-044"
+            ],
+            "accept": [
+              "Sorry! I'm coming."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "No worries. I'll get you a hot dog!",
+            "ko": "괜찮아요. 핫도그 하나 사 둘게요!"
+          }
+        ]
+      },
+      "quest": {
+        "npc": "maria",
+        "place": "cafe",
+        "goal_ko": "Maria에게 Are you free tonight?으로 공원 음악회에 같이 가자고 해 보세요",
+        "target": "L1-P02-041",
+        "opener_en": "Hey, it's you again! The usual latte?"
+      }
+    },
+    {
+      "id": "L1-P02-D10",
+      "title_ko": "작별 인사와 주말",
+      "expressions": [
+        {
+          "id": "L1-P02-046",
+          "en": "See you later.",
+          "ko": "나중에 봐. / 이따 봐.",
+          "note_ko": "헤어질 때 가장 많이 쓰는 인사예요. 다시 만날 약속이 없어도 써요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Bye! See you later.",
+              "ko": "안녕! 나중에 봐."
+            }
+          ],
+          "accept": [
+            "See you.",
+            "See ya later.",
+            "Catch you later."
+          ],
+          "detect": [
+            "see you later",
+            "see ya later",
+            "catch you later"
+          ],
+          "check": [
+            "see you later"
+          ]
+        },
+        {
+          "id": "L1-P02-047",
+          "en": "Take care.",
+          "ko": "잘 지내. / 조심히 가.",
+          "note_ko": "헤어질 때 상대를 챙기는 따뜻한 인사예요. 한동안 못 볼 때나 여행 가는 사람에게 잘 어울려요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Take care! Have a safe trip.",
+              "ko": "잘 다녀와! 조심히 여행해."
+            }
+          ],
+          "accept": [
+            "Take care of yourself.",
+            "Be safe."
+          ],
+          "detect": [
+            "take care"
+          ],
+          "check": [
+            "take care"
+          ]
+        },
+        {
+          "id": "L1-P02-048",
+          "en": "Have a good one.",
+          "ko": "좋은 하루 보내세요.",
+          "note_ko": "가게 점원이나 이웃과 헤어질 때 자주 하는 인사예요. one이 '하루, 저녁, 주말' 무엇이든 가리켜서 언제든 쓸 수 있어요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "Thanks! Have a good one.",
+              "ko": "고마워요! 좋은 하루 보내세요."
+            }
+          ],
+          "accept": [
+            "Have a good day.",
+            "Have a nice day."
+          ],
+          "detect": [
+            "have a good one",
+            "have a good day",
+            "have a nice day"
+          ],
+          "check": [
+            "have a good one"
+          ]
+        },
+        {
+          "id": "L1-P02-049",
+          "en": "Have a good weekend.",
+          "ko": "주말 잘 보내.",
+          "note_ko": "금요일에 헤어질 때 하는 인사예요. 대답은 You too!(너도!)라고 하면 돼요.",
+          "register": "neutral",
+          "examples": [
+            {
+              "en": "See you Monday! Have a good weekend.",
+              "ko": "월요일에 봐요! 주말 잘 보내요."
+            }
+          ],
+          "accept": [
+            "Have a nice weekend.",
+            "Have a great weekend.",
+            "Enjoy your weekend."
+          ],
+          "detect": [
+            "nice weekend",
+            "good weekend",
+            "great weekend",
+            "enjoy your weekend"
+          ],
+          "check": [
+            "have a good weekend"
+          ]
+        },
+        {
+          "id": "L1-P02-050",
+          "en": "Talk to you later.",
+          "ko": "나중에 얘기하자.",
+          "note_ko": "전화나 문자를 끝낼 때, 또는 헤어질 때 써요. 문자로는 줄여서 TTYL이라고도 써요.",
+          "register": "casual",
+          "examples": [
+            {
+              "en": "I have to go. Talk to you later!",
+              "ko": "이제 가야 해. 나중에 얘기하자!"
+            }
+          ],
+          "accept": [
+            "Talk to you soon.",
+            "I'll talk to you later."
+          ],
+          "detect": [
+            "talk to you later",
+            "talk to you soon"
+          ],
+          "check": [
+            "talk to you later"
+          ]
+        }
+      ],
+      "script": {
+        "id": "L1-P02-D10-S",
+        "setting_ko": "금요일 저녁, Sam이 주말에 부모님 댁에 간다. 그 뒤에 Tony네 푸드트럭에 들른다",
+        "lines": [
+          {
+            "who": "sam",
+            "en": "Hey! I'm going to visit my parents this weekend.",
+            "ko": "안녕하세요! 저 이번 주말에 부모님 댁에 가요."
+          },
+          {
+            "who": "me",
+            "en": "Oh, nice! Have a good weekend.",
+            "ko": "오, 좋네요! 주말 잘 보내요.",
+            "uses": [
+              "L1-P02-049"
+            ],
+            "accept": [
+              "Oh, nice! Have a nice weekend."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Thanks, you too! Any plans?",
+            "ko": "고마워요, 당신도요! 계획 있어요?"
+          },
+          {
+            "who": "me",
+            "en": "Not really. I'm so tired. I just want to rest.",
+            "ko": "별로요. 너무 피곤해서 그냥 쉬고 싶어요.",
+            "accept": [
+              "Not really. I just want to rest."
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "Good idea. Oh, my bus is here!",
+            "ko": "좋은 생각이에요. 앗, 버스 왔다!"
+          },
+          {
+            "who": "me",
+            "en": "Okay. Take care!",
+            "ko": "알겠어요. 조심히 가요!",
+            "uses": [
+              "L1-P02-047"
+            ],
+            "accept": [
+              "Okay. Be safe!"
+            ]
+          },
+          {
+            "who": "sam",
+            "en": "You too! I'll text you on Sunday.",
+            "ko": "당신도요! 일요일에 문자할게요."
+          },
+          {
+            "who": "me",
+            "en": "Sounds good. Talk to you later!",
+            "ko": "좋아요. 나중에 얘기해요!",
+            "uses": [
+              "L1-P02-050"
+            ],
+            "accept": [
+              "Sounds good. Talk to you soon!"
+            ]
+          },
+          {
+            "who": "tony",
+            "en": "Here's your hot dog. Anything else?",
+            "ko": "(잠시 후, Tony네 푸드트럭) 핫도그 여기 있어요. 다른 건요?"
+          },
+          {
+            "who": "me",
+            "en": "No, that's all. Thanks! Have a good one.",
+            "ko": "아니요, 그게 다예요. 고마워요! 좋은 하루 보내세요.",
+            "uses": [
+              "L1-P02-048"
+            ],
+            "accept": [
+              "No, that's it. Thanks! Have a good day."
+            ]
+          },
+          {
+            "who": "tony",
+            "en": "You too! Come back soon.",
+            "ko": "당신도요! 또 와요."
+          },
+          {
+            "who": "me",
+            "en": "See you later!",
+            "ko": "나중에 봐요!",
+            "uses": [
+              "L1-P02-046"
+            ],
+            "accept": [
+              "See you!"
+            ]
+          }
+        ]
+      },
+      "quest": {
+        "npc": "grace",
+        "place": "park",
+        "goal_ko": "Grace에게 Have a good weekend.로 주말 인사를 해 보세요",
+        "target": "L1-P02-049",
+        "opener_en": "Oh my, is it Friday already? This week went so fast."
+      }
+    }
+  ]
+}
