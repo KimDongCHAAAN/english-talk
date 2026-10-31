@@ -1,5 +1,5 @@
 // Offline support (spec §9.1): network first so updates arrive, cache fallback for the subway.
-const CACHE = 'et-2026-10-31.4'; // keep in sync with APP_VERSION in app.js
+const CACHE = 'et-2026-10-31.5'; // keep in sync with APP_VERSION in app.js
 const SHELL = [
   './', 'index.html', 'app.css', 'app.js', 'config.js', 'manifest.webmanifest', 'icon-180.png',
   'lib/content.js', 'lib/gemini.js', 'lib/merge.js', 'lib/speech.js', 'lib/srs.js', 'lib/store.js', 'lib/sync.js', 'lib/text.js', 'lib/youtube.js',
@@ -26,7 +26,9 @@ self.addEventListener('fetch', (ev) => {
       const cache = await caches.open(CACHE);
       try {
         const res = await Promise.race([
-          fetch(req),
+          // 'no-cache': ask the server whether the file changed (GitHub Pages says max-age=600, which kept
+          // phones on old files for 10 minutes after an update); unchanged files come back as a quick 304
+          fetch(req, { cache: 'no-cache' }),
           new Promise((_, reject) => setTimeout(() => reject(new Error('slow network')), 4000)),
         ]);
         if (res.ok) cache.put(req, res.clone());
