@@ -321,9 +321,25 @@ function refreshSceneViews() {
   else if (path.startsWith('/scene/') && !document.activeElement?.matches('input, textarea')) renderScene(path.slice(7));
 }
 
-async function explainOne(id) {
+const QUOTA_DAY_KEY = 'et.geminiQuotaDay';
+const retryTimers = new Map();
+
+function scheduleRetry(id, ms) {
+  if (retryTimers.has(id)) return;
+  retryTimers.set(id, setTimeout(() => {
+    retryTimers.delete(id);
+    explainOne(id);
+  }, ms));
+}
+
+async function explainOne(id, { manual = false } = {}) {
   const scene = load().scenes[id];
   if (!scene || scene.deleted || explaining.has(id)) return;
+  if (!manual && localStorage.getItem(QUOTA_DAY_KEY) === today()) {
+    explainNotice = '오늘 무료 사용량을 다 썼어요. 내일 다시 설명할게요';
+    refreshSceneViews();
+    return;
+  }
   explaining.add(id);
   refreshSceneViews();
   try {
@@ -332,15 +348,19 @@ async function explainOne(id) {
     update((doc) => {
       putRecord(doc, 'scenes', id, {
         ...doc.scenes[id], said_en: r.said_en, explanation_ko: r.explanation_ko, sound_ko: r.sound_ko,
-        proposals: r.expressions, explainedAt: new Date().toISOString(), explainModel: r.model, explainMode: r.mode, error: '',
+        proposals: r.expressions, explainedAt: new Date().toISOString(), explainModel: r.model, explainMode: r.mode,
+        videoError: r.videoError || '', error: '', errorDetail: '',
       });
     });
     sync.syncNow();
   } catch (e) {
-    if (['video', 'bad-key', 'failed'].includes(e.code)) {
-      update((doc) => putRecord(doc, 'scenes', id, { ...doc.scenes[id], error: e.message }));
+    if (gemini.isTemporary(e)) {
+      explainNotice = e.message;
+      if (e.code === 'quota-day') localStorage.setItem(QUOTA_DAY_KEY, today());
+      if (e.code === 'quota-minute') scheduleRetry(id, 65000);
+      if (e.code === 'busy') scheduleRetry(id, 30000);
     } else {
-      explainNotice = e.message; // quota / offline / no key: keep the scene waiting and retry later
+      update((doc) => putRecord(doc, 'scenes', id, { ...doc.scenes[id], error: e.message, errorDetail: e.detail || '' }));
     }
   } finally {
     explaining.delete(id);
@@ -348,22 +368,14 @@ async function explainOne(id) {
   }
 }
 
-let pendingRunning = false;
+// At app start / when back online: explain at most one recent scene that is still waiting (saves the free quota).
 async function processPendingScenes() {
-  if (pendingRunning || !gemini.getKey() || !navigator.onLine) return;
-  pendingRunning = true;
-  try {
-    const waiting = Object.entries(load().scenes)
-      .filter(([, s]) => !s.deleted && !s.explainedAt && !s.error)
-      .map(([id]) => id)
-      .slice(0, 3);
-    for (const id of waiting) {
-      await explainOne(id);
-      if (explainNotice) break;
-    }
-  } finally {
-    pendingRunning = false;
-  }
+  if (!gemini.getKey() || !navigator.onLine || localStorage.getItem(QUOTA_DAY_KEY) === today()) return;
+  const dayAgo = new Date(Date.now() - 86400000).toISOString();
+  const waiting = Object.entries(load().scenes)
+    .filter(([, s]) => !s.deleted && !s.explainedAt && !s.error && (s.createdAt || '') > dayAgo)
+    .sort(([, a], [, b]) => (a.createdAt < b.createdAt ? 1 : -1));
+  if (waiting.length) await explainOne(waiting[0][0]);
 }
 
 function proposalsOf(s) {
@@ -385,6 +397,8 @@ function sceneDetail(id, s, { compact = false } = {}) {
     ${props.length ? `<div class="props">${props.map((p, i) => `<label class="check"><input type="checkbox" checked data-prop="${id}:${i}"> <span><b>${esc(p.en)}</b> — ${esc(p.ko)}<br><span class="small muted">${esc(p.note_ko || '')}</span></span></label>`).join('')}
       <button class="btn primary" data-add-props="${id}">학습 목록에 추가</button></div>` : ''}
     ${added.length ? `<div class="small">${added.map((c) => `✅ ${esc(c.en)} — ${esc(c.ko)}`).join('<br>')}</div>` : ''}
+    ${s.explainMode === 'text' && s.videoError ? '<p class="small muted">영상 듣기는 실패해서, 적어 주신 단어로 설명했어요</p>' : ''}
+    ${s.errorDetail || s.videoError ? `<details class="small muted"><summary>자세히 (문제 확인용)</summary>${esc(s.errorDetail || s.videoError)}</details>` : ''}
     ${!s.explainedAt && !explaining.has(id) ? `<form class="form inline" data-words="${id}"><input name="heard" placeholder="들린 단어를 적으면 더 정확해요 (선택)" value="${esc(s.heard || '')}"><button class="btn secondary" type="submit">${s.error ? '다시 설명' : '설명 요청'}</button></form>` : ''}
   </div>`;
 }
@@ -675,6 +689,7 @@ function renderSettings() {
     try {
       const model = await gemini.pickModel({ refresh: true });
       status.textContent = `연결됨 ✅ 모델: ${model}`;
+      localStorage.removeItem('et.geminiQuotaDay');
       processPendingScenes();
     } catch (e) {
       status.textContent = `⚠️ ${e.message}`;
@@ -790,8 +805,8 @@ document.addEventListener('submit', (ev) => {
   if (!id) return;
   ev.preventDefault();
   const heard = new FormData(ev.target).get('heard').trim();
-  update((doc) => putRecord(doc, 'scenes', id, { ...doc.scenes[id], heard, error: '' }));
-  explainOne(id);
+  update((doc) => putRecord(doc, 'scenes', id, { ...doc.scenes[id], heard, error: '', errorDetail: '' }));
+  explainOne(id, { manual: true });
 });
 sync.onStatus(() => {
   const chip = document.querySelector('.bar .chip');
