@@ -6,7 +6,7 @@ import * as speech from './lib/speech.js';
 import * as sync from './lib/sync.js';
 import * as youtube from './lib/youtube.js';
 
-export const APP_VERSION = '2026-10-31.6'; // keep in sync with CACHE in sw.js
+export const APP_VERSION = '2026-11-01.1'; // keep in sync with CACHE in sw.js
 const XP = { morning: 20, review: 2 };
 const app = document.getElementById('app');
 let content = null;
