@@ -1,28 +1,68 @@
 {
   "format": 1,
-  "about": "Links only (spec §4.3). Channel handles that could not be verified on 2026-10-31 use a YouTube search link instead, so a wrong address is never shown.",
+  "about": "Channels: in-app YouTube search runs 'query' (Q35). 'url' is the fallback when search is not set up.",
   "groups": [
     {
       "title_ko": "한국어로 설명해주는 유튜브",
       "items": [
-        { "title": "올리버쌤", "url": "https://www.youtube.com/results?search_query=%EC%98%AC%EB%A6%AC%EB%B2%84%EC%8C%A4", "note_ko": "미국인 선생님이 상황극으로 일상 표현과 문화 차이를 설명해요" },
-        { "title": "라이브 아카데미 토들러", "url": "https://www.youtube.com/results?search_query=%EB%9D%BC%EC%9D%B4%EB%B8%8C+%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8+%ED%86%A0%EB%93%A4%EB%9F%AC", "note_ko": "영어를 처음 배우는 사람을 위한 짧은 영상. 미묘한 어감 차이를 쉽게 풀어줘요" },
-        { "title": "에디 리 영어", "url": "https://www.youtube.com/results?search_query=%EC%97%90%EB%94%94+%EB%A6%AC+%EC%98%81%EC%96%B4", "note_ko": "원어민이 실제로 쓰는 센스 있는 표현을 알려줘요" },
-        { "title": "희수 영어", "url": "https://www.youtube.com/results?search_query=%ED%9D%AC%EC%88%98%EC%98%81%EC%96%B4", "note_ko": "영어회화 표현을 한국어로 설명해줘요" }
+        {
+          "title": "올리버쌤",
+          "url": "https://www.youtube.com/results?search_query=%EC%98%AC%EB%A6%AC%EB%B2%84%EC%8C%A4",
+          "note_ko": "미국인 선생님이 상황극으로 일상 표현과 문화 차이를 설명해요",
+          "query": "올리버쌤"
+        },
+        {
+          "title": "라이브 아카데미 토들러",
+          "url": "https://www.youtube.com/results?search_query=%EB%9D%BC%EC%9D%B4%EB%B8%8C+%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8+%ED%86%A0%EB%93%A4%EB%9F%AC",
+          "note_ko": "영어를 처음 배우는 사람을 위한 짧은 영상. 미묘한 어감 차이를 쉽게 풀어줘요",
+          "query": "라이브 아카데미 토들러"
+        },
+        {
+          "title": "에디 리 영어",
+          "url": "https://www.youtube.com/results?search_query=%EC%97%90%EB%94%94+%EB%A6%AC+%EC%98%81%EC%96%B4",
+          "note_ko": "원어민이 실제로 쓰는 센스 있는 표현을 알려줘요",
+          "query": "에디 리 영어"
+        },
+        {
+          "title": "희수 영어",
+          "url": "https://www.youtube.com/results?search_query=%ED%9D%AC%EC%88%98%EC%98%81%EC%96%B4",
+          "note_ko": "영어회화 표현을 한국어로 설명해줘요",
+          "query": "희수영어"
+        }
       ]
     },
     {
       "title_ko": "원어민 말투 그대로 듣기",
       "items": [
-        { "title": "Easy English", "url": "https://www.youtube.com/results?search_query=Easy+English+street+interviews", "note_ko": "길거리 인터뷰. 실제 사람들의 자연스러운 말투를 영어 자막과 함께 들어요" },
-        { "title": "BBC Learning English", "url": "https://www.youtube.com/@bbclearningenglish", "note_ko": "짧은 강의와 표현 영상. 영국 영어가 섞여 있어요" }
+        {
+          "title": "Easy English",
+          "url": "https://www.youtube.com/results?search_query=Easy+English+street+interviews",
+          "note_ko": "길거리 인터뷰. 실제 사람들의 자연스러운 말투를 영어 자막과 함께 들어요",
+          "query": "Easy English street interview"
+        },
+        {
+          "title": "BBC Learning English",
+          "url": "https://www.youtube.com/@bbclearningenglish",
+          "note_ko": "짧은 강의와 표현 영상. 영국 영어가 섞여 있어요",
+          "query": "BBC Learning English"
+        }
       ]
     },
     {
       "title_ko": "미드 (공식 클립)",
       "items": [
-        { "title": "Friends", "url": "https://www.youtube.com/results?search_query=Friends+official+clip", "note_ko": "일상 대화로만 이뤄진 시트콤. 공식 채널 클립만 앱에서 볼 수 있어요" },
-        { "title": "Modern Family", "url": "https://www.youtube.com/results?search_query=Modern+Family+official+clip", "note_ko": "미국 가족의 일상 대화. 공식 채널 클립만 앱에서 볼 수 있어요" }
+        {
+          "title": "Friends",
+          "url": "https://www.youtube.com/results?search_query=Friends+official+clip",
+          "note_ko": "일상 대화로만 이뤄진 시트콤. 공식 채널 클립만 앱에서 볼 수 있어요",
+          "query": "Friends official clip"
+        },
+        {
+          "title": "Modern Family",
+          "url": "https://www.youtube.com/results?search_query=Modern+Family+official+clip",
+          "note_ko": "미국 가족의 일상 대화. 공식 채널 클립만 앱에서 볼 수 있어요",
+          "query": "Modern Family official clip"
+        }
       ]
     }
   ]

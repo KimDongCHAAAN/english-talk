@@ -76,3 +76,18 @@ input, textarea, select { font: inherit; font-size: 16px; padding: 12px; border-
 .video { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: var(--radius); overflow: hidden; margin-bottom: 12px; }
 .video iframe, .video #yt { position: absolute; inset: 0; width: 100%; height: 100%; }
 footer { text-align: center; padding: 12px 0; }
+
+/* videos + scenes (Q34/Q35) */
+.search .row input { flex: 1; }
+.vcard { display: flex; gap: 10px; align-items: center; padding: 8px 0; border-top: 1px solid var(--line); color: var(--text); }
+.vcard img { width: 120px; height: 68px; object-fit: cover; border-radius: 10px; flex: none; background: var(--soft); }
+.vtitle { font-size: 15px; font-weight: 600; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+#results .vcard:first-child { border-top: none; }
+#results { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 12px; margin-bottom: 12px; }
+#results:empty { display: none; }
+.plainbtn { width: 100%; background: none; border: none; border-top: 1px solid var(--line); padding: 10px 0; font: inherit; color: var(--text); text-align: left; cursor: pointer; }
+.scene .props { margin-top: 8px; }
+.form.inline { grid-template-columns: 1fr auto; align-items: center; margin-top: 8px; }
+details summary { cursor: pointer; color: var(--muted); }
+details[open] summary { margin-bottom: 8px; }
+.actions [data-act="back10"] { flex: 0 0 34%; font-size: 15px; }
