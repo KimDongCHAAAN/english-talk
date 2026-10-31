@@ -1,8 +1,8 @@
 // Offline support (spec §9.1): network first so updates arrive, cache fallback for the subway.
-const CACHE = 'et-2026-10-31.5'; // keep in sync with APP_VERSION in app.js
+const CACHE = 'et-2026-10-31.6'; // keep in sync with APP_VERSION in app.js
 const SHELL = [
   './', 'index.html', 'app.css', 'app.js', 'config.js', 'manifest.webmanifest', 'icon-180.png',
-  'lib/content.js', 'lib/gemini.js', 'lib/merge.js', 'lib/speech.js', 'lib/srs.js', 'lib/store.js', 'lib/sync.js', 'lib/text.js', 'lib/youtube.js',
+  'lib/content.js', 'lib/merge.js', 'lib/speech.js', 'lib/srs.js', 'lib/store.js', 'lib/sync.js', 'lib/text.js', 'lib/youtube.js',
   'content/index.json', 'content/videos.json', 'content/npcs.json',
   'privacy.html', 'terms.html',
 ];

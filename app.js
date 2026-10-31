@@ -4,10 +4,9 @@ import { load, update, review, addXp, putRecord, today, uuid, onChange } from '.
 import { dueReviews, pickNewLesson, xpTotal, levelForXp, streak } from './lib/srs.js';
 import * as speech from './lib/speech.js';
 import * as sync from './lib/sync.js';
-import * as gemini from './lib/gemini.js';
 import * as youtube from './lib/youtube.js';
 
-export const APP_VERSION = '2026-10-31.5'; // keep in sync with CACHE in sw.js
+export const APP_VERSION = '2026-10-31.6'; // keep in sync with CACHE in sw.js
 const XP = { morning: 20, review: 2 };
 const app = document.getElementById('app');
 let content = null;
@@ -287,7 +286,7 @@ function renderQuiz() {
     <p class="small muted center">${s.i + 1} / ${s.questions.length}</p>`;
 }
 
-// ---------- scenes I didn't understand (spec §6; Q33: explained automatically by Gemini) ----------
+// ---------- scenes I didn't understand (spec §6; Q36: saved on the phone, explained in the evening by the PC) ----------
 
 function fmtTime(sec) {
   if (sec == null || sec === '') return '';
@@ -303,16 +302,11 @@ function parseTime(text) {
   return Number(m[1] || 0) * 3600 + Number(m[2]) * 60 + Number(m[3]);
 }
 
-const explaining = new Set();
-let explainNotice = '';
-
-function sceneStatus(id, s) {
-  if (explaining.has(id)) return '⏳ Gemini가 설명을 만드는 중…';
+function sceneStatus(s) {
   if (s.status === 'resolved') return '✅ 학습 목록에 추가했어요';
   if (s.explainedAt) return '💡 설명 도착';
   if (s.error) return `⚠️ ${s.error}`;
-  if (!gemini.getKey()) return '🔑 설정에서 Gemini 키를 넣으면 자동으로 설명해요';
-  return `⏳ 설명 대기 중${explainNotice ? ` (${explainNotice})` : ''}`;
+  return '🌙 저녁에 컴퓨터가 설명해 줄게요';
 }
 
 function refreshSceneViews() {
@@ -322,85 +316,21 @@ function refreshSceneViews() {
   else if (path.startsWith('/scene/') && !document.activeElement?.matches('input, textarea')) renderScene(path.slice(7));
 }
 
-const QUOTA_DAY_KEY = 'et.geminiQuotaDay';
-const retryTimers = new Map();
-
-function scheduleRetry(id, ms) {
-  if (retryTimers.has(id)) return;
-  retryTimers.set(id, setTimeout(() => {
-    retryTimers.delete(id);
-    explainOne(id);
-  }, ms));
-}
-
-async function explainOne(id, { manual = false } = {}) {
-  const scene = load().scenes[id];
-  if (!scene || scene.deleted || explaining.has(id)) return;
-  if (!manual && localStorage.getItem(QUOTA_DAY_KEY) === today()) {
-    explainNotice = '오늘 무료 사용량을 다 썼어요. 내일 다시 설명할게요';
-    refreshSceneViews();
-    return;
-  }
-  explaining.add(id);
-  refreshSceneViews();
-  try {
-    const r = await gemini.explainScene(scene);
-    explainNotice = '';
-    update((doc) => {
-      putRecord(doc, 'scenes', id, {
-        ...doc.scenes[id], said_en: r.said_en, explanation_ko: r.explanation_ko, sound_ko: r.sound_ko,
-        proposals: r.expressions, explainedAt: new Date().toISOString(), explainModel: r.model, explainMode: r.mode,
-        videoError: r.videoError || '', error: '', errorDetail: '',
-      });
-    });
-    sync.syncNow();
-  } catch (e) {
-    if (gemini.isTemporary(e)) {
-      explainNotice = e.message;
-      if (e.code === 'quota-day') localStorage.setItem(QUOTA_DAY_KEY, today());
-      if (e.code === 'quota-minute') scheduleRetry(id, 65000);
-      if (e.code === 'busy') scheduleRetry(id, 30000);
-    } else {
-      update((doc) => putRecord(doc, 'scenes', id, { ...doc.scenes[id], error: e.message, errorDetail: e.detail || '' }));
-    }
-  } finally {
-    explaining.delete(id);
-    refreshSceneViews();
-  }
-}
-
-// At app start / when back online: explain at most one recent scene that is still waiting (saves the free quota).
-async function processPendingScenes() {
-  if (!gemini.getKey() || !navigator.onLine || localStorage.getItem(QUOTA_DAY_KEY) === today()) return;
-  const dayAgo = new Date(Date.now() - 86400000).toISOString();
-  const waiting = Object.entries(load().scenes)
-    .filter(([, s]) => !s.deleted && !s.explainedAt && !s.error && (s.createdAt || '') > dayAgo)
-    .sort(([, a], [, b]) => (a.createdAt < b.createdAt ? 1 : -1));
-  if (waiting.length) await explainOne(waiting[0][0]);
-}
-
-function proposalsOf(s) {
-  return s.proposals?.length ? s.proposals : parseAnswer(s.answer || '');
-}
-
 function sceneDetail(id, s, { compact = false } = {}) {
   const doc = load();
   const added = (s.customIds || []).map((cid) => doc.custom[cid]).filter((c) => c && !c.deleted);
-  const props = s.status === 'resolved' ? [] : proposalsOf(s);
+  const props = s.status === 'resolved' ? [] : s.proposals || [];
   const when = s.startSec != null ? `<b>${fmtTime(s.startSec)}</b> ` : '';
   return `<div class="scene card" data-scene="${id}">
-    <div class="row"><span>${when}<span class="small muted">${esc(sceneStatus(id, s))}</span></span>
+    <div class="row"><span>${when}<span class="small muted">${esc(sceneStatus(s))}</span></span>
       ${compact ? '' : `<button class="btn danger small" data-del-scene="${id}">지우기</button>`}</div>
     ${s.said_en ? `<div class="row"><div class="en small-en grow">${esc(s.said_en)}</div><div class="btns">${speakBtn(s.said_en)}</div></div>` : ''}
-    ${s.heard && !s.said_en ? `<p class="muted">들린 말: ${esc(s.heard)}</p>` : ''}
     ${s.explanation_ko ? `<p>${esc(s.explanation_ko)}</p>` : ''}
     ${s.sound_ko ? `<p class="note">🔉 ${esc(s.sound_ko)}</p>` : ''}
     ${props.length ? `<div class="props">${props.map((p, i) => `<label class="check"><input type="checkbox" checked data-prop="${id}:${i}"> <span><b>${esc(p.en)}</b> — ${esc(p.ko)}<br><span class="small muted">${esc(p.note_ko || '')}</span></span></label>`).join('')}
       <button class="btn primary" data-add-props="${id}">학습 목록에 추가</button></div>` : ''}
     ${added.length ? `<div class="small">${added.map((c) => `✅ ${esc(c.en)} — ${esc(c.ko)}`).join('<br>')}</div>` : ''}
-    ${s.explainMode === 'text' && s.videoError ? '<p class="small muted">영상 듣기는 실패해서, 적어 주신 단어로 설명했어요</p>' : ''}
-    ${s.errorDetail || s.videoError ? `<details class="small muted"><summary>자세히 (문제 확인용)</summary>${esc(s.errorDetail || s.videoError)}</details>` : ''}
-    ${!s.explainedAt && !explaining.has(id) ? `<form class="form inline" data-words="${id}"><input name="heard" placeholder="들린 단어를 적으면 더 정확해요 (선택)" value="${esc(s.heard || '')}"><button class="btn secondary" type="submit">${s.error ? '다시 설명' : '설명 요청'}</button></form>` : ''}
+    ${!s.explainedAt ? `<form class="form inline" data-words="${id}"><input name="heard" placeholder="들린 단어나 화면 자막 몇 단어 (선택)" value="${esc(s.heard || '')}"><button class="btn secondary" type="submit">저장</button></form>` : ''}
   </div>`;
 }
 
@@ -410,11 +340,11 @@ function renderScenes() {
     .filter(([, s]) => !s.deleted)
     .sort(([, a], [, b]) => (a.createdAt < b.createdAt ? 1 : -1));
   const rows = list
-    .map(([id, s]) => `<a class="card link" href="#/scene/${id}"><div>${s.status === 'resolved' ? '✅' : s.explainedAt ? '💡' : '❓'} <b>${esc(s.said_en || s.heard || s.title || '장면')}</b></div>
+    .map(([id, s]) => `<a class="card link" href="#/scene/${id}"><div>${s.status === 'resolved' ? '✅' : s.explainedAt ? '💡' : '🌙'} <b>${esc(s.said_en || s.heard || s.title || '장면')}</b></div>
       <div class="small muted">${esc(s.title || s.context || '')} ${s.startSec != null ? `· ${fmtTime(s.startSec)}` : ''}</div></a>`)
     .join('');
   app.innerHTML = `${header('이해 못 한 장면')}
-    <p class="small muted">영상을 보다가 <b>🙋 이해 못 했어요</b>를 누르면 여기에 모여요. 앱 밖에서 본 영상(TV, 영화 등)은 아래 버튼으로 직접 적을 수 있어요.</p>
+    <p class="small muted">영상을 보다가 <b>🙋 이해 못 했어요</b>를 누르면 여기에 모여요. 저녁에 컴퓨터 게임을 켜면 컴퓨터가 영상 자막에서 그 대사를 찾아 설명을 붙여요. 앱 밖에서 본 영상(TV, 영화 등)은 아래 버튼으로 직접 적을 수 있어요.</p>
     <a class="btn secondary big" href="#/scenes/new">+ 직접 적기</a>
     ${rows || '<div class="card muted">아직 저장한 장면이 없어요</div>'}`;
 }
@@ -426,7 +356,7 @@ function renderSceneNew() {
       <label>장면 설명 <span class="muted">(선택)</span><input name="context" placeholder="친구 둘이 저녁 먹을지 이야기하는 장면"></label>
       <label>유튜브 링크 <span class="muted">(선택)</span><input name="url" type="url" placeholder="https://youtu.be/..."></label>
       <label>시간 <span class="muted">(선택, 예: 12:34)</span><input name="time" placeholder="12:34"></label>
-      <button class="btn primary big" type="submit">저장하고 설명 받기</button>
+      <button class="btn primary big" type="submit">저장</button>
     </form>`;
   document.getElementById('scene-form').addEventListener('submit', (ev) => {
     ev.preventDefault();
@@ -436,43 +366,12 @@ function renderSceneNew() {
     update((doc) => {
       putRecord(doc, 'scenes', id, {
         heard: f.get('heard').trim(), context: f.get('context').trim(), videoUrl: url, videoId: url ? youtube.videoId(url) : null,
-        startSec: parseTime(f.get('time')), answer: '', status: 'open', customIds: [], createdAt: new Date().toISOString(),
+        startSec: parseTime(f.get('time')), status: 'open', customIds: [], createdAt: new Date().toISOString(),
       });
     });
     sync.syncNow();
     go(`#/scene/${id}`);
-    explainOne(id);
   });
-}
-
-function askPrompt(s) {
-  return [
-    '아래는 내가 영어 영상을 보다가 이해하지 못한 장면이야. 나는 한국인이고 영어 회화 초보(CEFR A2)야.',
-    s.heard ? `- 들린 대로 적은 문장 (정확하지 않을 수 있음): "${s.heard}"` : '',
-    s.videoUrl ? `- 영상: ${s.videoUrl}${s.startSec != null ? ` (${fmtTime(s.startSec)} 부근)` : ''}` : '',
-    s.context ? `- 장면 설명: ${s.context}` : '',
-    '',
-    '1) 실제로 뭐라고 말했을지 정확한 영어 문장으로 써 줘.',
-    '2) 뜻과 문맥, 왜 그렇게 말했는지 쉬운 한국어로 설명해 줘.',
-    '3) 잘 안 들린 이유(연음, 축약 등)가 있으면 알려 줘.',
-    '4) 마지막에, 내가 외우면 좋을 표현 1~3개를 아래 JSON 형식 그대로 적어 줘:',
-    '{"expressions":[{"en":"영어 표현","ko":"한국어 뜻","note_ko":"언제 쓰는지 한 줄 설명"}]}',
-  ].filter((l) => l !== '').join('\n');
-}
-
-function parseAnswer(text) {
-  const start = text.lastIndexOf('{"expressions"');
-  const from = start >= 0 ? start : text.indexOf('{');
-  if (from < 0) return [];
-  for (let end = text.length; end > from; end = text.lastIndexOf('}', end - 1)) {
-    try {
-      const data = JSON.parse(text.slice(from, end + 1));
-      return (data.expressions || []).filter((e) => e.en && e.ko);
-    } catch {
-      // keep shrinking until the JSON parses
-    }
-  }
-  return [];
 }
 
 function renderScene(id) {
@@ -483,12 +382,6 @@ function renderScene(id) {
     ${s.title ? `<p class="small muted">${esc(s.title)}</p>` : ''}
     ${sceneDetail(id, s)}
     ${replay}
-    <details class="card"><summary class="small">Gemini 없이 물어보기 (키가 없거나 사용량을 다 썼을 때)</summary>
-      <p class="small">질문을 복사해서 Claude나 ChatGPT 앱에 붙여넣고, 받은 답을 아래에 붙여넣으세요.</p>
-      <button class="btn secondary" data-copy-scene="${id}">질문 복사하기</button>
-      <textarea id="answer" rows="5" placeholder="AI의 답을 여기에 붙여넣기">${esc(s.answer || '')}</textarea>
-      <button class="btn secondary" data-save-answer="${id}">답 저장</button>
-    </details>
     <details class="card"><summary class="small">✍️ 표현 직접 추가</summary>
       <form class="form" id="custom-form"><input name="en" placeholder="영어 표현" required><input name="ko" placeholder="한국어 뜻" required><input name="note" placeholder="메모 (선택)">
       <button class="btn secondary" type="submit">추가</button></form></details>`;
@@ -598,7 +491,7 @@ function renderWatch(params) {
   app.innerHTML = `${header('영상 보기', '#/videos')}
     <div class="video"><div id="yt"></div></div>
     <div class="actions"><button class="btn secondary" data-act="back10">⏪ 10초 뒤로</button><button class="btn primary" data-act="save-scene">🙋 이해 못 했어요</button></div>
-    <p class="small muted center">모르는 대사가 지나가면 바로 누르세요. 영상은 계속 볼 수 있고, 설명은 아래에 나타나요.</p>
+    <p class="small muted center">모르는 대사가 지나가면 바로 누르세요. 영상은 계속 볼 수 있어요. 저녁에 컴퓨터 게임을 켜면 설명이 붙어요.</p>
     <section id="scene-list"></section>`;
   renderWatchScenes();
   if (!navigator.onLine) {
@@ -632,7 +525,6 @@ function saveSceneHere() {
   });
   sync.syncNow();
   renderWatchScenes();
-  explainOne(id);
 }
 
 // ---------- settings ----------
@@ -650,14 +542,7 @@ function renderSettings() {
     'needs-token': '로그인 확인이 필요해요. 아래 버튼을 눌러주세요',
     idle: '',
   }[s.state] || '';
-  const key = gemini.getKey();
   app.innerHTML = `${header('설정')}
-    <section class="card"><h2>💡 Gemini 키 (장면 자동 설명)</h2>
-      <p class="small muted">구글 AI Studio에서 만든 무료 키를 붙여넣으세요. 키는 이 폰에만 저장돼요. 무료 사용분은 구글이 AI 개선에 내용을 쓸 수 있어요.</p>
-      <form class="form" id="gemini-form"><input name="key" type="password" autocomplete="off" placeholder="AIza..." value="${esc(key)}">
-        <div class="actions"><button class="btn primary" type="submit">저장하고 확인</button>${key ? '<button class="btn danger small" type="button" data-act="gemini-clear">지우기</button>' : ''}</div></form>
-      <p class="small" id="gemini-status">${key ? `연결됨 · 모델: ${esc(localStorage.getItem('et.geminiModel') || '확인 전')}` : ''}</p>
-    </section>
     <section class="card"><h2>📺 유튜브 로그인 (광고 없애기 시험)</h2>
       <p class="small muted">유튜브 프리미엄 계정으로 이 앱 안에서 로그인해 두면, 앱 안 영상에도 프리미엄이 적용될 수 있어요. 먼저 아이폰 <b>설정 → 앱 → Safari → 크로스 사이트 추적 방지</b>를 꺼야 해요 (사파리 전체에 적용돼요).</p>
       <button class="btn secondary" data-act="yt-login">유튜브 로그인</button>
@@ -682,20 +567,6 @@ function renderSettings() {
   if (voiceSel) voiceSel.addEventListener('change', () => speech.setVoice(voiceSel.value));
   const rate = document.getElementById('rate');
   if (rate) rate.addEventListener('input', () => { speech.setRate(rate.value); document.getElementById('rate-val').textContent = rate.value; });
-  document.getElementById('gemini-form').addEventListener('submit', async (ev) => {
-    ev.preventDefault();
-    const status = document.getElementById('gemini-status');
-    gemini.setKey(new FormData(ev.target).get('key'));
-    status.textContent = '확인 중…';
-    try {
-      const model = await gemini.pickModel({ refresh: true });
-      status.textContent = `연결됨 ✅ 모델: ${model}`;
-      localStorage.removeItem('et.geminiQuotaDay');
-      processPendingScenes();
-    } catch (e) {
-      status.textContent = `⚠️ ${e.message}`;
-    }
-  });
 }
 
 // ---------- router + events ----------
@@ -738,21 +609,9 @@ document.addEventListener('click', async (ev) => {
     return;
   }
   if (d.search) return runSearch(d.search, true);
-  if (d.copyScene) {
-    const s = load().scenes[d.copyScene];
-    await navigator.clipboard.writeText(askPrompt(s)).catch(() => {});
-    el.textContent = '복사했어요 ✅ AI 앱에 붙여넣으세요';
-    return;
-  }
-  if (d.saveAnswer) {
-    const answer = document.getElementById('answer').value;
-    update((doc) => putRecord(doc, 'scenes', d.saveAnswer, { ...doc.scenes[d.saveAnswer], answer }));
-    sync.syncNow();
-    return renderScene(d.saveAnswer);
-  }
   if (d.addProps) {
     const id = d.addProps;
-    const proposals = proposalsOf(load().scenes[id]);
+    const proposals = load().scenes[id].proposals || [];
     const chosen = [...document.querySelectorAll(`[data-prop^="${id}:"]`)]
       .filter((c) => c.checked)
       .map((c) => proposals[Number(c.dataset.prop.split(':')[1])])
@@ -782,9 +641,6 @@ document.addEventListener('click', async (ev) => {
     case 'back10':
       if (ytPlayer?.getCurrentTime) ytPlayer.seekTo(Math.max(0, ytPlayer.getCurrentTime() - 10), true);
       return;
-    case 'gemini-clear':
-      gemini.setKey('');
-      return renderSettings();
     case 'yt-login':
       location.href = `https://accounts.google.com/ServiceLogin?service=youtube&continue=${encodeURIComponent('https://www.youtube.com/')}`;
       return;
@@ -806,8 +662,9 @@ document.addEventListener('submit', (ev) => {
   if (!id) return;
   ev.preventDefault();
   const heard = new FormData(ev.target).get('heard').trim();
-  update((doc) => putRecord(doc, 'scenes', id, { ...doc.scenes[id], heard, error: '', errorDetail: '' }));
-  explainOne(id, { manual: true });
+  update((doc) => putRecord(doc, 'scenes', id, { ...doc.scenes[id], heard, error: '' }));
+  sync.syncNow();
+  refreshSceneViews();
 });
 sync.onStatus(() => {
   const chip = document.querySelector('.bar .chip');
@@ -829,11 +686,8 @@ async function main() {
   render();
   if (fromRedirect) sync.syncNow();
   else sync.syncOnOpen();
-  processPendingScenes();
-  window.addEventListener('online', () => {
-    sync.syncNow();
-    processPendingScenes();
-  });
+  for (const k of ['et.geminiKey', 'et.geminiModel', 'et.geminiLiteModel', 'et.geminiQuotaDay']) localStorage.removeItem(k); // Q36: Gemini removed
+  window.addEventListener('online', () => sync.syncNow());
   if ('serviceWorker' in navigator) {
     // A new version took over: reload once so the page runs the new files, not the cached old ones.
     const hadController = !!navigator.serviceWorker.controller;
