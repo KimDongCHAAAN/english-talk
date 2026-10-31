@@ -228,7 +228,25 @@
         "goal_ko": "공원 벤치에 앉아 있는 Grace에게 How's it going?으로 인사해 보세요",
         "target": "L1-P01-001",
         "opener_en": "Oh, hello there. Beautiful morning, isn't it?"
-      }
+      },
+      "videos": [
+        {
+          "id": "bOQZkKqtUXU",
+          "title": "14 Ways to Answer the Question, \"How's it going?\" - An English Lesson",
+          "channel": "Learn English with Bob the Canadian",
+          "start": 0,
+          "minutes": 6.5,
+          "note_ko": "How's it going?에 대답하는 방법 14가지. 이 표현이 27번 나와요"
+        },
+        {
+          "id": "TRp8y3vyHfY",
+          "title": "English Greetings - What's up? How are you? How's it going?",
+          "channel": "Hey Teacher!",
+          "start": 0,
+          "minutes": 3.6,
+          "note_ko": "인사 표현 모음. How's it going?, I'm good, Not bad가 나와요"
+        }
+      ]
     },
     {
       "id": "L1-P01-D02",
@@ -454,7 +472,17 @@
         "goal_ko": "푸드트럭 주인 Tony에게 I just moved here.로 자기소개를 해 보세요",
         "target": "L1-P01-008",
         "opener_en": "Hey there! I haven't seen you before. You new around here?"
-      }
+      },
+      "videos": [
+        {
+          "id": "s4D0IuP2bbc",
+          "title": "Learn How to Introduce Yourself in English | Video with Subtitles",
+          "channel": "Learn English with Bob the Canadian",
+          "start": 0,
+          "minutes": 5.8,
+          "note_ko": "천천히 말하는 자기소개 수업. 4:46쯤 Where are you from?, What do you do?가 나와요"
+        }
+      ]
     },
     {
       "id": "L1-P01-D03",
@@ -675,7 +703,25 @@
         "goal_ko": "카페에서 Maria가 무언가를 주면 Thanks a lot.으로 고마움을 표현해 보세요",
         "target": "L1-P01-011",
         "opener_en": "Hi! We're giving out free cookies today. Want one?"
-      }
+      },
+      "videos": [
+        {
+          "id": "0VwSkJPiBoY",
+          "title": "Please DON’T Say “You’re Welcome”! – Better Responses To THANK YOU | Learn English",
+          "channel": "Rachel's English",
+          "start": 0,
+          "minutes": 9.4,
+          "note_ko": "Thank you에 대답하는 자연스러운 말. Thanks a lot, No problem, No worries가 나와요"
+        },
+        {
+          "id": "u77lgqKQY84",
+          "title": "No Worries (American English Slang) | Learn American English in 1 Minute a Day",
+          "channel": "Jackie Bolen",
+          "start": 0,
+          "minutes": 0.8,
+          "note_ko": "1분 만에 배우는 No worries"
+        }
+      ]
     },
     {
       "id": "L1-P01-D04",
@@ -899,7 +945,17 @@
         "goal_ko": "Grace의 좋은 소식을 듣고 That's great!로 함께 기뻐해 주세요",
         "target": "L1-P01-020",
         "opener_en": "Guess what? My granddaughter is coming to visit me this weekend!"
-      }
+      },
+      "videos": [
+        {
+          "id": "RQAWAS-c7xw",
+          "title": "Talking about Likes and Dislikes in English - A Real English Conversation with Bob and Jen",
+          "channel": "Learn English with Bob the Canadian",
+          "start": 0,
+          "minutes": 11.0,
+          "note_ko": "실제 대화 속 맞장구. Really?가 11번, Sounds good도 나와요"
+        }
+      ]
     },
     {
       "id": "L1-P01-D05",
@@ -1128,7 +1184,25 @@
         "goal_ko": "Tony가 빠르게 말하면 Could you say that again?으로 다시 물어보세요",
         "target": "L1-P01-023",
         "opener_en": "Hey, welcome back! You want the usual chili dog with everything on it?"
-      }
+      },
+      "videos": [
+        {
+          "id": "3N4249i-RcM",
+          "title": "Conversational English - Asking for Repetition",
+          "channel": "American English",
+          "start": 0,
+          "minutes": 1.6,
+          "note_ko": "미국 국무부 영어 채널. 다시 말해 달라고 하는 법 (Could you say that again?)"
+        },
+        {
+          "id": "kUCBqslWw-c",
+          "title": "7 ways to ask someone to REPEAT 🔁 #english #learnenglish #americanenglish #eslvocabulary",
+          "channel": "Learn to Decode English",
+          "start": 0,
+          "minutes": 0.6,
+          "note_ko": "다시 말해 달라는 7가지 방법 (짧은 영상)"
+        }
+      ]
     }
   ]
 }

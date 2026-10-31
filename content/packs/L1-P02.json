@@ -243,7 +243,25 @@
         "goal_ko": "카페에서 Maria에게 Can I get ...?으로 음료를 주문해 보세요",
         "target": "L1-P02-026",
         "opener_en": "Hi there! What can I get for you today?"
-      }
+      },
+      "videos": [
+        {
+          "id": "x-0WIrRZGIE",
+          "title": "5-Minute English Conversation Practice: Ordering Coffee",
+          "channel": "English Together",
+          "start": 0,
+          "minutes": 2.0,
+          "note_ko": "커피 주문 대화. Can I get…?, To go, please, Here you go가 나와요"
+        },
+        {
+          "id": "9nq9ocivltk",
+          "title": "Ordering at a Coffee Shop English Speaking: How to Order Coffee in English Conversation",
+          "channel": "English Together",
+          "start": 0,
+          "minutes": 1.9,
+          "note_ko": "커피숍 주문 대화 (2분)"
+        }
+      ]
     },
     {
       "id": "L1-P02-D07",
@@ -481,7 +499,17 @@
         "goal_ko": "Tony의 푸드트럭에서 I'm starving.이라고 말하고 음식을 주문해 보세요",
         "target": "L1-P02-032",
         "opener_en": "Hey, buddy! You look hungry. What'll it be?"
-      }
+      },
+      "videos": [
+        {
+          "id": "7RVzg83ivME",
+          "title": "8 Ways to Say \"I'm Hungry\" in English | Animated English Lesson",
+          "channel": "English Teacher Josh",
+          "start": 0,
+          "minutes": 6.0,
+          "note_ko": "'배고파'를 말하는 8가지 방법 (애니메이션). I'm starving이 나와요"
+        }
+      ]
     },
     {
       "id": "L1-P02-D08",
@@ -716,7 +744,25 @@
         "goal_ko": "공원에서 Grace에게 Nice weather, huh?로 날씨 이야기를 시작해 보세요",
         "target": "L1-P02-037",
         "opener_en": "Oh, hello, dear. Come sit with me for a minute."
-      }
+      },
+      "videos": [
+        {
+          "id": "nBpPe9UweWs",
+          "title": "Learn English Conversation: Weather and Small Talk 30 SECONDS (Subtitles)",
+          "channel": "Simple English Videos",
+          "start": 0,
+          "minutes": 0.5,
+          "note_ko": "30초 날씨 스몰토크. It's so cold today가 나와요"
+        },
+        {
+          "id": "_N2Q2_TtG0o",
+          "title": "Weather Talk!  Learn English Words and Phrases to Talk about the Weather | Video with Subtitles",
+          "channel": "Learn English with Bob the Canadian",
+          "start": 0,
+          "minutes": 8.1,
+          "note_ko": "날씨 이야기 표현 모음. 3:28쯤 It looks like rain이 나와요"
+        }
+      ]
     },
     {
       "id": "L1-P02-D09",
@@ -956,7 +1002,25 @@
         "goal_ko": "Maria에게 Are you free tonight?으로 공원 음악회에 같이 가자고 해 보세요",
         "target": "L1-P02-041",
         "opener_en": "Hey, it's you again! The usual latte?"
-      }
+      },
+      "videos": [
+        {
+          "id": "JDgpSJ7Mors",
+          "title": "Making Plans: Learn Common English Phrases & Practice Speaking Quickly",
+          "channel": "Ellii (formerly ESL Library)",
+          "start": 0,
+          "minutes": 10.2,
+          "note_ko": "약속 잡는 표현 연습. Are you free tonight?이 나와요"
+        },
+        {
+          "id": "Pp3EY7uNXQg",
+          "title": "Making Plans - 7 Short English Conversation of Making Plans with Subtitle",
+          "channel": "Hello Mister",
+          "start": 0,
+          "minutes": 3.2,
+          "note_ko": "약속 잡는 짧은 대화 7개. See you there가 나와요"
+        }
+      ]
     },
     {
       "id": "L1-P02-D10",
@@ -1193,7 +1257,17 @@
         "goal_ko": "Grace에게 Have a good weekend.로 주말 인사를 해 보세요",
         "target": "L1-P02-049",
         "opener_en": "Oh my, is it Friday already? This week went so fast."
-      }
+      },
+      "videos": [
+        {
+          "id": "DKFA5_E9WY8",
+          "title": "STOP Saying GOODBYE: 33 ways to say \"BYE\"",
+          "channel": "Speak English With Vanessa",
+          "start": 0,
+          "minutes": 10.1,
+          "note_ko": "Bye 대신 쓰는 33가지. See you later, Take care, Have a good one, Talk to you later가 나와요"
+        }
+      ]
     }
   ]
 }

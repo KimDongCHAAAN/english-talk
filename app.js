@@ -216,6 +216,7 @@ function renderSessionEnd() {
   app.innerHTML = `${header('잘했어요!')}
     <section class="card center"><div class="avatar big">🎉</div>${lines.map((l) => `<p>${l}</p>`).join('')}</section>
     ${lesson ? `<section class="card quest"><h2>🎯 오늘 저녁 퀘스트</h2><p>${esc(lesson.quest.goal_ko)}</p></section>` : ''}
+    ${lesson?.videos?.length ? `<a class="btn secondary big" href="#/watch?v=${encodeURIComponent(lesson.videos[0].id)}&t=${lesson.videos[0].start || 0}">📺 이 레슨 영상 보기</a>` : ''}
     <div class="actions"><a class="btn secondary" href="#/quiz">듣기 퀴즈</a><a class="btn primary" href="#/">홈으로</a></div>`;
   session = null;
 }
@@ -506,7 +507,7 @@ let lastSearch = JSON.parse(sessionStorage.getItem('et.lastSearch') || 'null');
 function videoCard(v) {
   const href = `#/watch?v=${encodeURIComponent(v.id)}${v.start ? `&t=${v.start}` : ''}`;
   return `<a class="vcard" href="${href}"><img src="${esc(v.thumb || `https://i.ytimg.com/vi/${v.id}/mqdefault.jpg`)}" alt="" loading="lazy">
-    <div class="grow"><div class="vtitle">${esc(v.title)}</div><div class="small muted">${esc(v.channel || '')}${v.note_ko ? ` · ${esc(v.note_ko)}` : ''}</div></div></a>`;
+    <div class="grow"><div class="vtitle">${esc(v.title)}</div><div class="small muted">${esc(v.channel || '')}${v.minutes ? ` · ${v.minutes}분` : ''}</div>${v.note_ko ? `<div class="small">${esc(v.note_ko)}</div>` : ''}</div></a>`;
 }
 
 function lessonVideos() {
