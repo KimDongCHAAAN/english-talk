@@ -1,34 +1,77 @@
 {
   "format": 1,
-  "about": "NPCs for the evening game (spec §8.2). 'model' is an RG Poly character folder chosen in stage 6.",
+  "about": "NPCs of the evening game (spec §8.2, Q40). 'model' is an RG Poly character: a folder (its first model) or folder/file. 'place' is a place id of the map (game/world/city.gd). 'anim' is the idle animation.",
   "npcs": [
     {
       "id": "sam", "name": "Sam",
-      "role_en": "your neighbor across the hall; runs a small bike repair shop on Maple Street",
+      "role_en": "your neighbor across the hall at Maple Apartments; runs a small bike repair shop on Maple Street",
       "personality_en": "warm, easygoing, likes jokes and bagels, always ready to help; grew up in New Harbor",
       "secret_en": "he is secretly practicing guitar for the park concert and is too shy to tell anyone",
-      "place": "apartment", "voice": "am_michael", "model": null
+      "place": "apartments", "voice": "am_michael", "model": "CH_9", "anim": "Idle_A_MC"
     },
     {
       "id": "maria", "name": "Maria",
-      "role_en": "barista at the corner cafe",
+      "role_en": "barista at Bean Corner Cafe on Maple Street",
       "personality_en": "cheerful, a little nosy, loves talking about her dog Biscuit, remembers everyone's usual order",
       "secret_en": "she is saving money to open her own bakery",
-      "place": "cafe", "voice": "af_heart", "model": null
+      "place": "cafe", "voice": "af_heart", "model": "CH_15", "anim": "Idle_B_MC"
     },
     {
       "id": "tony", "name": "Tony",
-      "role_en": "owner of the hot dog food truck by the park",
+      "role_en": "owner of Tony's Hot Dogs, the food truck at the south edge of Maple Park",
       "personality_en": "loud, friendly, talks fast, huge baseball fan, calls everyone 'buddy'",
       "secret_en": "he is writing a cookbook of his grandmother's recipes",
-      "place": "foodtruck", "voice": "am_adam", "model": null
+      "place": "hotdogs", "voice": "am_adam", "model": "CH_10", "anim": "Working_A_MC"
     },
     {
       "id": "grace", "name": "Grace",
-      "role_en": "retired music teacher who sits on the park bench every morning",
+      "role_en": "retired music teacher who sits by the fountain in Maple Park every day",
       "personality_en": "kind, patient, speaks slowly and clearly, loves telling stories about the old neighborhood",
       "secret_en": "she taught Sam piano when he was a kid",
-      "place": "park", "voice": "af_sarah", "model": null
+      "place": "park", "voice": "af_sarah", "model": "CH_11", "anim": "Idle_A_MC"
+    },
+    {
+      "id": "luis", "name": "Luis",
+      "role_en": "owner of Luis's Deli, the corner store (bodega) on Oak Street",
+      "personality_en": "relaxed and friendly, never in a hurry, proud of his shop cat Mango, knows every product in the store",
+      "secret_en": "he used to be a salsa dancer and still dances in the store when nobody is watching",
+      "place": "deli", "voice": "am_eric", "model": "CH_4/CH_4_2_A_MC", "anim": "Idle_B_MC"
+    },
+    {
+      "id": "nina", "name": "Nina",
+      "role_en": "works at Nina's Pizza, her family's pizza place on Maple Street",
+      "personality_en": "fast, cheerful and funny, loves recommending toppings, always busy but always smiling",
+      "secret_en": "she is secretly training for the New Harbor marathon",
+      "place": "pizza", "voice": "af_bella", "model": "CH_14/CH_14_8_A_MC", "anim": "Idle_A_MC"
+    },
+    {
+      "id": "ray", "name": "Ray",
+      "role_en": "station agent at Maple St subway station on 2nd Avenue",
+      "personality_en": "careful, polite and patient, explains directions step by step, loves trains and city history",
+      "secret_en": "he has ridden every subway line in the city to the very last stop",
+      "place": "subway", "voice": "am_liam", "model": "CH_7/CH_7_1_A_MC", "anim": "Idle_A_MC"
+    },
+    {
+      "id": "marcus", "name": "Marcus",
+      "role_en": "a regular at the Maple Park basketball court; works as a gym coach",
+      "personality_en": "energetic, jokes a lot, competitive but kind, always invites people to play",
+      "secret_en": "he is nervous about a job interview to coach a high school team",
+      "place": "court", "voice": "am_puck", "model": "CH_6/CH_6_5_A_MC", "anim": "Idle_B_MC"
+    },
+    {
+      "id": "linda", "name": "Linda",
+      "role_en": "owner of Bubbles Laundromat on Elm Street",
+      "personality_en": "chatty and warm, the neighborhood gossip who hears all the news first, asks a lot of questions",
+      "secret_en": "she writes a neighborhood newsletter under a fake name",
+      "place": "laundromat", "voice": "af_jessica", "model": "CH_12/CH_12_7_A_MC", "anim": "Idle_A_MC", "news_hub": true
     }
+  ],
+  "tourists": [
+    {"name": "Emily", "hometown": "Austin, Texas", "voice": "af_sky", "model": "CH_14/CH_14_3_A_MC"},
+    {"name": "Jake", "hometown": "Columbus, Ohio", "voice": "am_liam", "model": "CH_8/CH_8_3_A_MC"},
+    {"name": "Olivia", "hometown": "Denver, Colorado", "voice": "af_river", "model": "CH_12/CH_12_2_A_MC"},
+    {"name": "Ben", "hometown": "Seattle, Washington", "voice": "am_fenrir", "model": "CH_2/CH_2_3_A_MC"},
+    {"name": "Hannah", "hometown": "Nashville, Tennessee", "voice": "af_nova", "model": "CH_14/CH_14_5_A_MC"},
+    {"name": "Carlos", "hometown": "Phoenix, Arizona", "voice": "am_eric", "model": "CH_8/CH_8_5_A_MC"}
   ]
 }
