@@ -7,6 +7,7 @@ import * as sync from './lib/sync.js';
 import * as gemini from './lib/gemini.js';
 import * as youtube from './lib/youtube.js';
 
+export const APP_VERSION = '2026-10-31.4'; // keep in sync with CACHE in sw.js
 const XP = { morning: 20, review: 2 };
 const app = document.getElementById('app');
 let content = null;
@@ -675,7 +676,7 @@ function renderSettings() {
       <button class="btn secondary" data-say="Hi! How's it going? Nice to meet you.">들어보기</button>
       <p class="small muted">아이폰 설정 → 손쉬운 사용 → 읽기 및 말하기 → 음성 → 영어에서 "향상된 음질" 음성을 내려받으면 더 자연스러워요.</p>` : '<p>이 브라우저는 읽어주기를 지원하지 않아요.</p>'}
     </section>
-    <section class="card small muted"><p>기기 ID: ${esc(localStorage.getItem('et.deviceId') || '')}</p>
+    <section class="card small muted"><p>앱 버전: ${APP_VERSION}</p><p>기기 ID: ${esc(localStorage.getItem('et.deviceId') || '')}</p>
       <p><a href="privacy.html">개인정보처리방침</a> · <a href="terms.html">서비스 약관</a></p></section>`;
   const voiceSel = document.getElementById('voice');
   if (voiceSel) voiceSel.addEventListener('change', () => speech.setVoice(voiceSel.value));
@@ -833,7 +834,17 @@ async function main() {
     sync.syncNow();
     processPendingScenes();
   });
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+  if ('serviceWorker' in navigator) {
+    // A new version took over: reload once so the page runs the new files, not the cached old ones.
+    const hadController = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (hadController && !sessionStorage.getItem('et.reloaded')) {
+        sessionStorage.setItem('et.reloaded', '1');
+        location.reload();
+      }
+    });
+    navigator.serviceWorker.register('sw.js').then((reg) => reg.update()).catch(() => {});
+  }
 }
 
 main();
